@@ -97,4 +97,17 @@
           
     <definition name="patient.main.html" template="/WEB-INF/jsp/module/patient/view/patient.main.html.jsp"/>
     <definition name="add-edit-patient.html" template="/WEB-INF/jsp/module/patient/view/add-edit-patient.html.jsp"/>   
+	
+    <definition name="schedularLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/schedular/app.js.jsp" />
+        <!-- <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/schedular/controllers.js.jsp" /> -->  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/schedular/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/schedular/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/schedular/rightPane.jsp" />  
+    </definition>
+
+    <definition name="schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/schedular.main.html.jsp"/>
+    <definition name="daily.schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/daily.schedular.main.html.jsp"/>
+    <definition name="monthly.schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/monthly.schedular.main.html.jsp"/>
+       
 </tiles-definitions>

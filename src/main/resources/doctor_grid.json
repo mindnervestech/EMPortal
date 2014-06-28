@@ -21,6 +21,11 @@
         "sortable": true
     },
     {
+       "headerCssClass": "hiddenCol",
+       "cssClass": "hiddenCol",
+       "id": "Id", "name": "Id", "field": "id", "width": 0, "minWidth": 0, "maxWidth": 0
+    },
+    {
         "name": "AllowedEvents",
         "field": "allowedScheduledEvent",
         "id": "allowedScheduledEvent",

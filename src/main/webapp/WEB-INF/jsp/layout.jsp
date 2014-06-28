@@ -23,6 +23,7 @@
   	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/bower_components/ng-dialog/css/ngDialog-theme-default.min.css" type="text/css"/>
   	
   	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/css/icol16.css" type="text/css"/>
+  	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/css/icol32.css" type="text/css"/>
   </head>
   <script>var contextPath = "${pageContext.request.contextPath}"</script>
   <body  class="container18grid" data-ng-app="home-app"  style="overflow-y: scroll;">

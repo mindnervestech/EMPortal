@@ -56,6 +56,12 @@ public class ApplicationController {
 		return "doctorLayout";
 	}
 	
+		@RequestMapping(value = "/schedularLayout", method = RequestMethod.GET)
+	public String schedular(Locale locale, Model model) {
+		model.addAttribute("_menuContext", MenuBarFixture.build("dummy"));
+		
+		return "schedularLayout";
+	}
 	
 	@RequestMapping(value = "/patientLayout", method = RequestMethod.GET)
 	public String patient(Locale locale, Model model) {
