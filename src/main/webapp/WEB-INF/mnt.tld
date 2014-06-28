@@ -1,0 +1,50 @@
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.0</jsp-version>
+  <short-name>MNT TLD</short-name>
+  <tag>
+    <name>FormHeader</name>
+    <tag-class>com.mnt.emr.tld.FormHeaderUI</tag-class>
+    <body-content>scriptless</body-content>
+    <attribute>
+    	<name>cssclass</name>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <name>grid-filter</name>
+    <tag-class>com.mnt.emr.tld.GridFilter</tag-class>
+    <body-content>scriptless</body-content>
+    <dynamic-attributes>true</dynamic-attributes>
+    <attribute>
+    	<name>json</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    	<name>field</name>
+    	<required>true</required>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <name>ui</name>
+    <tag-class>com.mnt.emr.tld.UIField</tag-class>
+    <body-content>scriptless</body-content>
+    <dynamic-attributes>true</dynamic-attributes>
+    <attribute>
+    	<name>cType</name>
+    	<required>true</required>
+    	
+    </attribute>
+    <attribute>
+    	<name>ds</name>
+    </attribute>
+    <attribute>
+    	<name>label</name>
+    </attribute>
+    <attribute>
+    	<name>labelClass</name>
+    </attribute>
+  </tag>
+</taglib>

@@ -1,0 +1,34 @@
+{
+ "column" : [
+    {
+       "headerCssClass": "hiddenCol",
+       "cssClass": "hiddenCol",
+       "id": "Id", "name": "Id", "field": "id", "width": 0, "minWidth": 0, "maxWidth": 0
+    },
+    {
+        "name": "Name",
+        "field": "firstName",
+        "id": "firstName", 
+        "sortable": true
+    }, 
+    {
+        "name": "Email",
+        "field": "email", 
+        "id": "email",
+        "sortable": true
+    },
+    {
+        "name": "City",
+        "field": "city", 
+        "id": "city",
+        "sortable": true
+    }
+ ],
+ "searchable": ["firstName","email","city"],
+ "filters": [
+   {"name":"name","type":"text","label":"Name"},
+   
+   {"name":"roleType","type":"enum","label":"Role", "ds":"com.custom.domain.UserType"}
+ ],
+ "searchUrl" : "user-search"
+}

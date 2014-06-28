@@ -1,0 +1,30 @@
+<%@ taglib prefix="css" uri="/WEB-INF/mnt.tld"%>
+
+<div>
+	<div class="onerow color0-row">
+		<input type="radio" data-ng-model="selectedAddress.isDefaultContact" data-ng-init="selectedAddress.isDefaultContact=false;">
+		<label class="col8 small text-right">Is Default Contact</label>
+	</div>
+	
+	<div class="onerow color1-row">
+		<label class="col2  small text-right">Address</label>
+		<input class="col14" data-ng-model="selectedAddress.address" >
+	</div>
+	
+	<div class="onerow color0-row">
+		<label class="col2  small text-right">City</label>
+		<input class="col5" data-ng-model="selectedAddress.city" >
+		<label class="left2 col2  small text-right">State</label>
+		<input class="col5" data-ng-model="selectedAddress.state" >
+	</div>
+	
+	<div class="onerow color1-row">
+		<label class="col2  small text-right">Country</label>
+		<input class="col5" data-ng-model="selectedAddress.country" >
+		<label class="left2 col2  small text-right">Postal Code</label>
+		<input class="col5" data-ng-model="selectedAddress.postalCode" >
+	</div>
+</div>
+	<button data-ng-click="addAddressDetail();closeThisDialog()" >{{selectedAddressIndex == -1 ? 'Add' : 'Edit'}} </button>
+	<button data-ng-click="removeAddressDetail();closeThisDialog()">Remove</button>
+	<button data-ng-click="closeThisDialog()">Cancel</button>
