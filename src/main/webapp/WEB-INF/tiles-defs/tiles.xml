@@ -109,5 +109,23 @@
     <definition name="schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/schedular.main.html.jsp"/>
     <definition name="daily.schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/daily.schedular.main.html.jsp"/>
     <definition name="monthly.schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/monthly.schedular.main.html.jsp"/>
+    
+    <definition name="login.html" template="/WEB-INF/jsp/Login.jsp"/>
+    
+    <definition name="sadminDasboard"  extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/sadmin/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/sadmin/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/sadmin/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/sadmin/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/sadmin/rightPane.jsp" />
+    </definition>
+    
+    <definition name="fadminDasboard" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/fadmin/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/fadmin/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/fadmin/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/fadmin/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/fadmin/rightPane.jsp" />
+    </definition>
        
 </tiles-definitions>

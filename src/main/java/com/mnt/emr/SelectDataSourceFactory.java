@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.custom.domain.AllowedScheduledEvent;
+import com.custom.domain.Ethnicity;
 import com.custom.domain.PayerType;
 import com.custom.domain.PlaceofService;
 import com.custom.domain.TaskPriority;

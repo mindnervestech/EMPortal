@@ -15,6 +15,8 @@
 	<link href="${pageContext.request.contextPath}/resources/app/css/style.css" rel="stylesheet" media="all">
 	<link href="${pageContext.request.contextPath}/resources/app/css/18grid.css" rel="stylesheet" media="all">
 	
+	<link href="${pageContext.request.contextPath}/resources/app/bower_components/fuelux/dist/css/fuelux.css" rel="stylesheet" type="text/css">
+    
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/slick-grid/slick.grid.css" type="text/css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/slick-grid/slick-default-theme.css"  type="text/css" />
   	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/slick-grid/controls/slick.columnpicker.css" type="text/css"/>
@@ -44,11 +46,11 @@
 		    </div>   
   </body>
 
-
-    <script src="${pageContext.request.contextPath}/resources/app/bower_components/jquery/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/app/bower_components/jquery/dist/jquery.min.js"></script>
+    
+	
     <script src="${pageContext.request.contextPath}/resources/app/wizard/wizard.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/app/wizard/jquery.form.min.js"></script>
-    
     <script src="${pageContext.request.contextPath}/resources/app/slick-grid/lib/jquery.event.drag-2.2.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/app/slick-grid/slick.dataview.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/app/slick-grid/slick.core.js"></script>
@@ -66,7 +68,11 @@
     
 	<script src="${pageContext.request.contextPath}/resources/app/bower_components/moment/moment.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script src="${pageContext.request.contextPath}/resources/app/bower_components/fuelux/dist/loader.js"></script>
     <script src="${pageContext.request.contextPath}/resources/app/bower_components/angular/angular.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/app/bower_components/angular-fuelux/angular-fuelux.js"></script>
+    
     <script src="${pageContext.request.contextPath}/resources/app/bower_components/angular-resource/angular-resource.js"></script>
     <script src="${pageContext.request.contextPath}/resources/app/bower_components/angular-route/angular-route.js"></script>
     <script src="${pageContext.request.contextPath}/resources/app/bower_components/angular-animate/angular-animate.min.js"></script>

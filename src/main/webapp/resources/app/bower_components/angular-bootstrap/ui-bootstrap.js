@@ -1635,7 +1635,8 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.transition'])
     var $modalProvider = {
       options: {
         backdrop: true, //can be also false or 'static'
-        keyboard: true
+        keyboard: true,
+        templateCache: true
       },
       $get: ['$injector', '$rootScope', '$q', '$http', '$templateCache', '$controller', '$modalStack',
         function ($injector, $rootScope, $q, $http, $templateCache, $controller, $modalStack) {
@@ -1644,7 +1645,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.transition'])
 
           function getTemplatePromise(options) {
             return options.template ? $q.when(options.template) :
-              $http.get(options.templateUrl, {cache: $templateCache}).then(function (result) {
+              $http.get(options.templateUrl, {cache: options.templateCache}).then(function (result) {
                 return result.data;
               });
           }

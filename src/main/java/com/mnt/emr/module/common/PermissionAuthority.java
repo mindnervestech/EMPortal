@@ -8,7 +8,7 @@ public class PermissionAuthority implements GrantedAuthority {
 	
 	public PermissionAuthority(String authority) {
 		super();
-		this.authority = authority;
+		this.authority = "ROLE_" + authority;
 	}
 
 	@Override

@@ -11,7 +11,7 @@
 	<!-- This is where we configure Spring-Security -->
 	<security:http auto-config="true" use-expressions="true" >
  		<security:form-login login-page="/login" 
- 		default-target-url="/login"  
+ 		default-target-url="/homeLayout"  
  		login-processing-url="/j_spring_security_check" authentication-failure-url="/login.go?errorLogin" />
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/logout" access="permitAll" />

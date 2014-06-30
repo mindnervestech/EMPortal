@@ -11,6 +11,12 @@ fieldset.border {
             box-shadow:  0px 0px 0px 0px #000;
 }
 
+.pillbox-container {
+	border: 1px solid #bbb;
+	margin-bottom: 10px;
+	border-radius: 4px;
+}
+
 .left-inner-addon {
     position: relative;
 }
