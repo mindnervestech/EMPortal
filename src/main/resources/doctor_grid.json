@@ -36,5 +36,6 @@
  "filters": [
    {"name":"Name","type":"text","label":"Name"}
  ],
- "searchUrl" : "doctor-search"
+ "searchUrl" : "doctor-search",
+ "isActionable" : true
 }

@@ -59,7 +59,7 @@ public class ApplicationController {
 	}
 	
 	@RequestMapping(value = "/doctorLayout", method = RequestMethod.GET)
-	@PreAuthorize("hasPermission(#user, 'doctorLayout')")
+	//@PreAuthorize("hasPermission(#user, 'doctorLayout')")
 	public String doctor(Locale locale, Model model, Principal principal) {
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		
@@ -84,6 +84,12 @@ public class ApplicationController {
 	public String task(Locale locale, Model model, Principal principal) {
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		return "taskLayout";
+	}
+	
+	@RequestMapping(value = "/facilityLayout", method = RequestMethod.GET)
+	public String facility(Locale locale, Model model, Principal principal) {
+		model.addAttribute("_menuContext", MenuBarFixture.build());
+		return "facilityLayout";
 	}
 	
 	@RequestMapping(value = "/homeLayout", method = RequestMethod.GET)

@@ -1,0 +1,166 @@
+<%@ taglib prefix="css" uri="/WEB-INF/mnt.tld"%>
+
+<div class="insuranceSection">
+	<fieldset class="border">
+   		<legend class="border">Personal Information</legend>
+		<div>
+			<div class="onerow color0-row">
+				<css:ui data-ng-init="selectedInsurance.insuranceProvider = 'Male'" 
+					data-ng-model="selectedInsurance.insuranceProvider" 
+					labelClass="col2 small text-right" 
+					class="col5"
+					cType="select" 
+					ds="genderList" 
+					label="Primary Insurance Provider"/>
+				<css:ui data-ng-init="selectedInsurance.preferredLab= 'Male'" 
+					data-ng-model="selectedInsurance.preferredLab" 
+					labelClass="left2 col2 small text-right"
+					class="col5" 
+					cType="select" 
+					ds="genderList" 
+					label="Preferred Lab"/>
+			</div>
+	
+			<div class="onerow color1-row">
+				<label class="col2 small text-right">Plan Name</label>
+				<input class="col4" data-palceholder="Plan Name" data-ng-model="selectedInsurance.planName" >
+			</div>
+			
+			<div class="onerow color0-row">
+				<div class="dropdown col12 float-none">
+						<css:ui  
+						data-ng-model="selectedInsurance.effectiveDate" 
+						value="{{selectedInsurance.effectiveDate|date:'MMMM-dd-yyyy'||'From'}}"
+						labelClass="small col3 text-right float-none" 
+						cType="date" 
+						label="Effective Date"/>
+				</div>
+			</div>
+			
+			<div class="onerow color1-row">
+				<label class="col2 small text-right">Policy Number</label>
+				<input class="col4" data-palceholder="Policy Number" data-ng-model="selectedInsurance.policyNo" >
+			</div>
+			
+			<div class="onerow color0-row">
+				<label class="col2 small text-right">Group Number</label>
+				<input class="col4" data-palceholder="Group Number" data-ng-model="selectedInsurance.groupNo" >
+			</div>
+			
+			<div class="onerow color1-row">
+				<label class="col2 small text-right">CoPay</label>
+				<input class="col4" data-palceholder="CoPay" data-ng-model="selectedInsurance.copay" >
+			</div>
+		</div>
+   </fieldset>
+   
+   <fieldset class="border">
+   		<legend class="border">Subscriber Employer(SE)</legend>
+   		<div class="onerow color0-row">
+   			<label class="col2  small text-right">Employer Name</label>
+			<input class="col5" data-ng-model="selectedInsurance.employerName" >
+   		</div>
+   		
+   		<div class="onerow color1-row">
+   			<label class="col2  small text-right">SE Address</label>
+			<input class="col14" data-ng-model="selectedInsurance.seAddress" >
+   		</div>
+   		
+   		<div class="onerow color0-row">
+   			<label class="col2  small text-right">SE City</label>
+			<input class="col5" data-ng-model="selectedInsurance.seCity" >
+			<label class="left2 col2  small text-right">SE State</label>
+			<input class="col5" data-ng-model="selectedInsurance.seState" >
+   		</div>
+   		
+   		<div class="onerow color0-row">
+   			<label class="col2  small text-right">SE Zip Code</label>
+			<input class="col5" data-ng-model="selectedInsurance.seZipCode" >
+			<label class="left2 col2  small text-right">SE Country</label>
+			<input class="col5" data-ng-model="selectedInsurance.seCountry" >
+   		</div>
+   </fieldset>
+   
+   <fieldset class="border">
+   		<legend class="border">Subscriber Details</legend>
+       
+		<div>
+		   <div class="onerow color0-row">
+	   			<css:ui 
+					data-ng-model="selectedInsurance.relationship" 
+					labelClass="col2 small text-right" 
+					class="col5 last" 
+					cType="select" 
+					ds="getEthnicities" 
+					label="Ethnicity"
+					/>
+	   		</div>
+	   		
+	   		<div class="onerow color1-row">
+				<label class="col2  small text-right">Subscriber</label>
+				<input class="col5" data-ng-model="selectedInsurance.subscriber" >
+	   		</div>
+	   		
+	   		<div class="onerow color0-row">
+	   			<div class="dropdown col8">
+						<css:ui  
+						data-ng-model="selectedInsurance.dob" 
+						value="{{selectedInsurance.dob|date:'MMMM-dd-yyyy'||'From'}}"
+						labelClass="small col2 text-left" 
+						cType="date" 
+						class="left2 col10"
+						label="Date Of Birth"/>
+				</div>
+				
+				<css:ui data-ng-init="selectedInsurance.gender = 'Male'" 
+					data-ng-model="selectedInsurance.gender" 
+					labelClass="col2 small text-right"
+					class="col5" 
+					cType="select" 
+					ds="genderList" 
+					label="Sex"/>
+			</div>
+			
+			<div class="onerow color1-row">
+				<label class="col2  small text-right">S.S.</label>
+				<input class="col5" data-ng-model="selectedInsurance.ss" >
+	   		</div>
+	   		
+	   		<div class="onerow color0-row">
+				<label class="col2  small text-right">Address</label>
+				<input class="col5" data-ng-model="selectedInsurance.address" >
+	   		</div>
+	   		
+	   		<div class="onerow color1-row">
+	   			<label class="col2  small text-right">City</label>
+				<input class="col5" data-ng-model="selectedInsurance.city" >
+				<label class="left2 col2  small text-right">State</label>
+				<input class="col5" data-ng-model="selectedInsurance.state" >
+   			</div>
+   			
+   			<div class="onerow color0-row">
+	   			<label class="col2  small text-right">Zip Code</label>
+				<input class="col5" data-ng-model="selectedInsurance.zipCode" >
+				<label class="left2 col2  small text-right">Country</label>
+				<input class="col5" data-ng-model="selectedInsurance.country" >
+   			</div>
+   			
+   			<div class="onerow color0-row">
+	   			<label class="col2  small text-right">Subscriber Phone</label>
+				<input class="col5" data-ng-model="selectedInsurance.subscriberPhone" >
+				<label class="left2 col2  small text-right">Accept Assignment</label>
+				<input class="col5" data-ng-model="selectedInsurance.acceptAssignment" >
+   			</div>
+	   	</div>
+   </fieldset>
+   
+   <button data-ng-click="addInsuranceDetail();closeThisDialog()" >{{selectedInsuranceIndex == -1 ? 'Add' : 'Edit'}} </button>
+	<button data-ng-click="removeInsuranceDetail();closeThisDialog()">Remove</button>
+	<button data-ng-click="closeThisDialog()">Cancel</button>
+</div>
+
+<style>
+	.ngdialog-content {
+		width: 1000px !important;
+	}
+</style>

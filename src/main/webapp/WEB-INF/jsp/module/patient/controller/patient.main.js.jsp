@@ -23,7 +23,7 @@ controllerProvider.register('PatientContentController',function($scope,$http,Mod
 	
 	$scope.initFormData = function(asJsonData) {
 		$scope.patientForm = asJsonData;
-		
+	
 	};
 	
 	$scope.openEntityModalById = function(_id) {
@@ -64,6 +64,37 @@ controllerProvider.register('PatientContentController',function($scope,$http,Mod
 	
 	$scope.removeAddressDetail = function () {
 		$scope.patientForm.addressDetails.splice($scope.selectedAddressIndex, 1);
+	};
+
+	//Insurance Detail Section
+	$scope.insuranceDetailModal = function(id) {
+		$scope.selectedInsuranceIndex = id;
+		if (id  == -1) {
+			$scope.selectedInsurance = {};
+			angular.copy($scope.patientForm.insuranceDetails[0], $scope.selectedInsurance);
+		} else {
+			angular.copy($scope.patientForm.insuranceDetails[id], $scope.selectedInsurance);
+		}
+		ngDialog.open({
+		    template: 'add-edit-insurances.html',
+		    scope: $scope,
+		    className: 'ngdialog-theme-default'
+
+		});
+	};
+	
+	$scope.addInsuranceDetail = function () {
+		if($scope.selectedInsuranceIndex == -1) {
+			var selectedInsurance = {};
+			angular.copy($scope.selectedInsurance,selectedInsurance);
+			$scope.patientForm.insuranceDetails[$scope.patientForm.insuranceDetails.length] = selectedInsurance;
+		} else {
+			angular.copy($scope.selectedInsurance,$scope.patientForm.insuranceDetails[$scope.selectedInsuranceIndex]);
+		}
+	};
+	
+	$scope.removeInsuranceDetail = function () {
+		$scope.patientForm.addressDetails.splice($scope.selectedInsuranceIndex, 1);
 	};
 });
 

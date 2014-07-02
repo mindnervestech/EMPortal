@@ -3,6 +3,9 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">  
 <tiles-definitions>  
+	
+	<definition name="registration" template="/WEB-INF/jsp/registration.jsp"/>
+	
     <definition name="base.definition" template="/WEB-INF/jsp/layout.jsp">  
         <put-attribute name="title" value="" />  
         <put-attribute name="header" value="/WEB-INF/jsp/module/common/Header.jsp" />  
@@ -127,5 +130,16 @@
         <put-attribute name="leftpane" value="/WEB-INF/jsp/module/fadmin/leftPane.jsp" />
         <put-attribute name="rightpane" value="/WEB-INF/jsp/module/fadmin/rightPane.jsp" />
     </definition>
-       
+    
+    <definition name="facilityLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/facility/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/facility/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/facility/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/facility/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/facility/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="facility.main.html" template="/WEB-INF/jsp/module/facility/view/facility.main.html.jsp"/>
+    <definition name="add-edit-facility.html" template="/WEB-INF/jsp/module/facility/view/add-edit-facility.html.jsp"/>
+    
 </tiles-definitions>

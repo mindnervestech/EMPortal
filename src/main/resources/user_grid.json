@@ -7,28 +7,28 @@
     },
     {
         "name": "Name",
-        "field": "firstName",
-        "id": "firstName", 
+        "field": "name",
+        "id": "name", 
         "sortable": true
     }, 
     {
-        "name": "Email",
-        "field": "email", 
-        "id": "email",
+        "name": "Date of Birth",
+        "field": "dob", 
+        "id": "dob",
         "sortable": true
-    },
+    }, 
     {
-        "name": "City",
-        "field": "city", 
-        "id": "city",
+        "name": "Country",
+        "field": "country",
+        "id": "country",
         "sortable": true
     }
  ],
- "searchable": ["firstName","email","city"],
+ "searchable": ["name","dob"],
  "filters": [
    {"name":"name","type":"text","label":"Name"},
-   
-   {"name":"roleType","type":"enum","label":"Role", "ds":"com.custom.domain.UserType"}
+   {"name":"dob","type":"date","label":"Date Of Birth"},
+   {"name":"roleType","type":"enum","label":"Role", "ds":"com.mnt.emr.module.user.RoleType"}
  ],
  "searchUrl" : "user-search"
 }

@@ -20,8 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mnt.emr.module.patient.model.Patient;
 import com.mnt.emr.module.patient.service.PatientService;
+import com.mnt.emr.module.patient.view.DataReleaseVM;
 import com.mnt.emr.module.patient.view.PatientVM;
+import com.mnt.emr.module.patient.view.StatsVM;
 import com.mnt.emr.util.Json;
 
 /**
@@ -47,7 +50,8 @@ public class PatientController {
 	@RequestMapping(value = "/savePatient", method = RequestMethod.POST)
 	public @ResponseBody Map<String,String> savePatient(@RequestBody PatientVM patientVM   ) {
 		logger.info("inside save Patient");
-		patientService.savePatient(patientVM);
+		Patient patient = patientService.savePatient(patientVM);
+		patientService.savePatientWithMongoDB(patientVM, patient.getId());
 		Map<String,String> message = new HashMap<String, String>();
 		message.put("success", "Patient Saved Successfully!");
 		return message;
@@ -69,6 +73,24 @@ public class PatientController {
 		return patientService.searchPatientsByFilter(name, role, dob);
 	}
 	
+	@RequestMapping(value="/save-stats", method = RequestMethod.POST)
+	public @ResponseBody Map<String,String> saveStas(@RequestBody StatsVM statsVM) {
+		logger.info("inside save stast");
+		patientService.saveOrUpdateStatsData(statsVM);
+		Map<String,String> message = new HashMap<String, String>();
+		message.put("success", "stast saved Successfully!");
+		return message;
+	}
+	
+	@RequestMapping(value="/save-data-release", method = RequestMethod.POST)
+	public @ResponseBody Map<String,String> saveDataRelease(@RequestBody DataReleaseVM dataReleaseVM) {
+		logger.info("inside save data-release");
+		patientService.saveOrUpdateDataReleaseData(dataReleaseVM);
+		Map<String,String> message = new HashMap<String, String>();
+		message.put("success", "data release saved Successfully!");
+		return message;
+	}
+	
 	@RequestMapping(value = "/add-edit-patient.html/{id}", method = RequestMethod.GET)
 	public String displayPatient(@PathVariable Long id, Model model) {
 		PatientVM patientVM = null;
@@ -80,6 +102,15 @@ public class PatientController {
 		model.addAttribute("asJson", Json.toJson(patientVM));
 		model.addAttribute("patient", patientVM);
 		return "add-edit-patient.html";
+	}
+	
+	@RequestMapping(value="/savePrimaryInsurance", method = RequestMethod.POST)
+	public @ResponseBody Map<String,String> savePrimaryInsurance(@RequestBody PatientVM patientVM   ) {
+		logger.info("inside save Patient");
+		patientService.savePatient(patientVM);
+		Map<String,String> message = new HashMap<String, String>();
+		message.put("success", "Patient Saved Successfully!");
+		return message;
 	}
 	
 	private static String getStringFromInputStream(InputStream is) {

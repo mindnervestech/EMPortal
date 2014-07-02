@@ -7,12 +7,18 @@ import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import com.avaje.ebean.Expr;
 import com.avaje.ebean.Expression;
 import com.mnt.emr.module.patient.model.Patient;
+import com.mnt.emr.module.patient.mongodb.PatientMongo;
+import com.mnt.emr.module.patient.view.DataReleaseVM;
 import com.mnt.emr.module.patient.view.PatientVM;
+import com.mnt.emr.module.patient.view.StatsVM;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
@@ -108,6 +114,55 @@ public class PatientRepositoryImpl implements PatientRepository {
 		Patient patient = mapper.map(vm, Patient.class);
 		patient.update();
 		return patient;
+	}
+
+	@Override
+	public Patient savePatientWithMongoDB(PatientVM vm, Long patientId) {
+		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
+		PatientMongo patientMongo = mapper.map(vm, PatientMongo.class);
+		patientMongo.setPatientId(patientId);
+		mongoTemplate.save(patientMongo, "patientDocuments");
+		return null;
+	}
+
+	@Override
+	public void saveOrUpdateStatsData(StatsVM statsVM) {
+		String collectionName = "patientDocuments";
+		
+		Query query = new Query();
+		query.addCriteria(Criteria.where("patientId").is(statsVM.getPatientId()));
+
+		PatientMongo patientMongo = mongoTemplate.findOne(query, PatientMongo.class, collectionName);
+		
+		if(patientMongo.stats == null) {
+			patientMongo.setStats(statsVM);
+			mongoTemplate.save(patientMongo, collectionName);
+		}
+		else {
+			patientMongo.setStats(statsVM);
+			mongoTemplate.upsert(query, Update.update("stats", statsVM), collectionName);
+		}
+	}
+
+	@Override
+	public void saveOrUpdatDataReleaseData(DataReleaseVM dataReleaseVM) {
+		String collectionName = "patientDocuments";
+		
+		Query query = new Query();
+		query.addCriteria(Criteria.where("patientId").is(dataReleaseVM.getPatientId()));
+
+		PatientMongo patientMongo = mongoTemplate.findOne(query, PatientMongo.class, collectionName);
+		
+		if(patientMongo != null){
+			if(patientMongo.dataReleaseVM == null) {
+				patientMongo.setDataReleaseVM(dataReleaseVM);
+				mongoTemplate.save(patientMongo, collectionName);
+			}
+			else {
+				patientMongo.setDataReleaseVM(dataReleaseVM);
+				mongoTemplate.upsert(query, Update.update("dataReleaseVM", dataReleaseVM), collectionName);
+			}
+		}
 	}
 
 }

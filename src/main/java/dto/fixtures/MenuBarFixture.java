@@ -43,8 +43,17 @@ public class MenuBarFixture {
 	
 	public static MenuBar build(){
 		List<MenuItem> resultMenu = new ArrayList<MenuItem>();
-		Map<String, Privileges> privilegeMap = ((AuthUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getPrivilegeMap();
-		//Collection<Privileges> privileges = ((AuthUser)principal).getPrivilegeMap().values();
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Map<String, Privileges> privilegeMap = null;
+		if(principal instanceof String) {
+			AuthUser user = AuthUser.findByUsername(principal);
+			user.getAuthorities();
+			privilegeMap = user.getPrivilegeMap();
+			
+		} else {
+			privilegeMap = ((AuthUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getPrivilegeMap();
+		}
+		 //Collection<Privileges> privileges = ((AuthUser)principal).getPrivilegeMap().values();
 		for(MenuItem mi : map.values()){
 			if(!mi.isSubMenu()){
 				List<MenuItem> resultSubMenus = new ArrayList<MenuItem>();

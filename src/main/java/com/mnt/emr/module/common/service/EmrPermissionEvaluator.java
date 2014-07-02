@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import com.mnt.emr.module.common.model.AuthUser;
@@ -17,16 +18,25 @@ public class EmrPermissionEvaluator  implements PermissionEvaluator  {
 		boolean hasPermission = false;
 		
 		if ( authentication != null &&  permission instanceof String){
+			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			AuthUser user;
 			String[] accessSet = permission.toString().split("==");
 			Privileges privileges = null;
-			
+			if(principal instanceof String) {
+				user = AuthUser.findByUsername(principal);
+				if(user != null) {
+					user.getAuthorities();
+				}
+			} else {
+				user = ((AuthUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+			}
 			if(accessSet.length == 1) {
-				privileges = ((AuthUser)authentication.getPrincipal()).getPrivilegeMap().get(permission);
+				privileges = user.getPrivilegeMap().get(permission);
 				return privileges != null && !privileges.getDenied();
 			}
 			
 			if(accessSet.length == 2) {
-				privileges = ((AuthUser)authentication.getPrincipal()).getPrivilegeMap().get(accessSet[0].trim());
+				privileges = user.getPrivilegeMap().get(accessSet[0].trim());
 				if(privileges != null && "READ_ONLY".equalsIgnoreCase(accessSet[1].trim())) {
 					return privileges.getRead() && !privileges.getDenied();
 				}

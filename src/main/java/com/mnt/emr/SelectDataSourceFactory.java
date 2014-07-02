@@ -7,6 +7,7 @@ import com.custom.domain.AllowedScheduledEvent;
 import com.custom.domain.Ethnicity;
 import com.custom.domain.PayerType;
 import com.custom.domain.PlaceofService;
+import com.custom.domain.Salutation;
 import com.custom.domain.TaskPriority;
 import com.custom.domain.TaskStatus;
 import com.custom.domain.UserGender;
@@ -143,6 +144,15 @@ public static Map<String, String> getAllowedEvents() {
 		map.put("3", "3");
 		map.put("4", "4");
 		map.put("5", "5");
+		return map;
+	}
+	
+	public static Map<String, String> getSalutaions() {
+		Map<String, String> map = new HashMap<>();
+		Salutation[] salutations = Salutation.values();
+		for(Salutation s: salutations) {
+			map.put(s.name(), s.displayValue);
+		}
 		return map;
 	}
 }

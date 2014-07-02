@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.mnt.emr.module.patient.model.Patient;
 import com.mnt.emr.module.patient.repository.PatientRepository;
+import com.mnt.emr.module.patient.view.DataReleaseVM;
 import com.mnt.emr.module.patient.view.PatientVM;
+import com.mnt.emr.module.patient.view.StatsVM;
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -34,6 +36,21 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public Patient updatePatient(PatientVM patientVM) {
 		return patientRepository.updatePatient(patientVM);
+	}
+
+	@Override
+	public Patient savePatientWithMongoDB(PatientVM patientVM, Long patientId) {
+		return patientRepository.savePatientWithMongoDB(patientVM, patientId);
+	}
+
+	@Override
+	public void saveOrUpdateStatsData(StatsVM statsVM) {
+		patientRepository.saveOrUpdateStatsData(statsVM);
+	}
+
+	@Override
+	public void saveOrUpdateDataReleaseData(DataReleaseVM dataReleaseVM) {
+		patientRepository.saveOrUpdatDataReleaseData(dataReleaseVM);
 	}
 
 }

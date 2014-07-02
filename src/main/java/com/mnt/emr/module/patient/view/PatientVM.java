@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.mnt.emr.module.patient.model.AddressDetail;
 
 public class PatientVM {
 	
@@ -20,9 +19,9 @@ public class PatientVM {
 	public String nickName;
 	public String gender;
 	public Date dateOfBirth;
-	public String Ssn;
+	public String ssn;
 	
-	public List<AddressDetail> addressDetails = Lists.newArrayList();
+	public List<AddressDetailVM> addressDetails = Lists.newArrayList();
 	
 	//Contact Details
 	public String phoneNumber;
@@ -38,6 +37,8 @@ public class PatientVM {
 	public String insuranceCarrier_1_Name;
 	public String insuranceCarrier_2_Name;
 	public String ethnicity;
+	
+	public List<InsuranceVM> insuranceDetails = Lists.newArrayList();
 	
 	public String getSalutation() {
 		return salutation;
@@ -94,15 +95,15 @@ public class PatientVM {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getSsn() {
-		return Ssn;
+		return ssn;
 	}
 	public void setSsn(String ssn) {
-		Ssn = ssn;
+		this.ssn = ssn;
 	}
-	public List<AddressDetail> getAddressDetails() {
+	public List<AddressDetailVM> getAddressDetails() {
 		return addressDetails;
 	}
-	public void setAddressDetails(List<AddressDetail> addressDetails) {
+	public void setAddressDetails(List<AddressDetailVM> addressDetails) {
 		this.addressDetails = addressDetails;
 	}
 	public String getPhoneNumber() {
@@ -176,5 +177,11 @@ public class PatientVM {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public List<InsuranceVM> getInsuranceDetails() {
+		return insuranceDetails;
+	}
+	public void setInsuranceDetails(List<InsuranceVM> insuranceVMs) {
+		this.insuranceDetails = insuranceVMs;
 	}
 }
