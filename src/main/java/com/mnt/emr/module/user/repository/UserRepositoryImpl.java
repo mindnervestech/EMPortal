@@ -5,14 +5,15 @@ import java.util.List;
 
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.avaje.ebean.Expr;
 import com.avaje.ebean.Expression;
-import com.mnt.emr.module.doctor.model.Doctor;
-import com.mnt.emr.module.doctor.view.DoctorVM;
-import com.mnt.emr.module.pharmacy.model.Pharmacy;
-import com.mnt.emr.module.pharmacy.view.PharmacyVM;
+import com.mnt.core.utils.RandomPasswordGenerator;
+import com.mnt.core.utils.RandomPasswordGenerator.Mode;
+import com.mnt.emr.module.common.model.AuthUser;
+import com.mnt.emr.module.common.model.Role;
 import com.mnt.emr.module.user.model.UserProfile;
 import com.mnt.emr.module.user.view.UserVM;
 
@@ -21,8 +22,43 @@ public class UserRepositoryImpl implements UserRepository {
 	
 	@Override
 	public UserProfile saveUser(UserVM userVM) {
+		
+		AuthUser user = null;
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if(principal instanceof String) {
+			user = AuthUser.findByUsername(principal.toString());
+		} else {
+			user = (AuthUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		}
+		
+		AuthUser authUser = null;
+		if(userVM.isWebAccess()) {
+			authUser = new AuthUser();
+			authUser.setUsername(userVM.getEmail());
+			authUser.setPassword(RandomPasswordGenerator.generateRandomString(6, Mode.ALPHANUMERIC));
+			authUser.setEnabled(true);
+			authUser.setFacility(user.getFacility());
+			
+			Role role = new Role();
+			role.setName(userVM.getUserType());
+			
+			role.setFacility(user.getFacility());
+			
+			if(authUser.getRoles() == null) {
+				List<Role> roles = new ArrayList<>();
+				roles.add(role);
+				authUser.setRoles(roles);
+			} else {
+				authUser.getRoles().add(role);
+			}
+		}
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
 		UserProfile userModel = mapper.map(userVM, UserProfile.class);
+		if(userVM.isWebAccess()) {
+			userModel.setAuthUser(authUser);
+			authUser.setUserProfile(userModel);
+		}
+		userModel.setFacility(user.getFacility());
 		userModel.save();
 		return userModel;
 	}

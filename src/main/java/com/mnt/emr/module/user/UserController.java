@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mnt.emr.module.doctor.view.DoctorVM;
-import com.mnt.emr.module.pharmacy.view.PharmacyVM;
 import com.mnt.emr.module.user.service.UserService;
-import com.mnt.emr.module.user.view.User;
 import com.mnt.emr.module.user.view.UserVM;
 import com.mnt.emr.util.Json;
 

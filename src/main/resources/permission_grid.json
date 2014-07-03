@@ -1,0 +1,27 @@
+{
+ "column" : [
+    {
+        "name": "roleName",
+        "field": "roleName",
+        "id": "roleName", 
+        "sortable": true
+    }, 
+    {
+        "name": "permissions",
+        "field": "permissions", 
+        "id": "permissions",
+        "sortable": true
+    }, 
+    {
+       "headerCssClass": "hiddenCol",
+       "cssClass": "hiddenCol",
+       "id": "Id", "name": "Id", "field": "id", "width": 0, "minWidth": 0, "maxWidth": 0
+    }
+ ],
+ "searchable": ["roleName","permissions"],
+ "filters": [
+   {"name":"roleName","type":"text","label":"Name"}
+ ],
+ "searchUrl" : "getAllPermissionSet",
+ "isActionable" : true
+}

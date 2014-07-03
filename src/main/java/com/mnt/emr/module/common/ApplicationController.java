@@ -92,6 +92,12 @@ public class ApplicationController {
 		return "facilityLayout";
 	}
 	
+	@RequestMapping(value = "/permissionLayout", method = RequestMethod.GET)
+	public String permission(Locale locale, Model model, Principal principal) {
+		model.addAttribute("_menuContext", MenuBarFixture.build());
+		return "permissionLayout";
+	}
+	
 	@RequestMapping(value = "/homeLayout", method = RequestMethod.GET)
 	@PreAuthorize("isAuthenticated()")
 	public String home(Locale locale, Model model, Principal principal) {

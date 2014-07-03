@@ -4,14 +4,6 @@ import java.util.Date;
 
 public class UserVM {
 	public Long id;
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String firstName;
 	public String middleName;
 	public String lastName;
@@ -25,9 +17,16 @@ public class UserVM {
 	public String postalCode;
 	public String country;
 	public String professionQualification;
-	public boolean adminAllowed;
+	public boolean webAccess;
 	public String userType;
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -133,12 +132,12 @@ public class UserVM {
 	}
 
 	
-	public boolean isAdminAllowed() {
-		return adminAllowed;
+	public boolean isWebAccess() {
+		return webAccess;
 	}
 
-	public void setAdminAllowed(boolean isAdminAllowed) {
-		this.adminAllowed = isAdminAllowed;
+	public void setWebAccess(boolean webAccess) {
+		this.webAccess = webAccess;
 	}
 
 	public String getUserType() {

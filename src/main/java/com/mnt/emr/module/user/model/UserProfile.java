@@ -2,6 +2,7 @@ package com.mnt.emr.module.user.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -38,7 +39,7 @@ public class UserProfile extends Model {
 	@OneToOne
 	public Facility facility;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	public AuthUser authUser;
 	
 	public boolean isAdminAllowed() {
@@ -177,5 +178,21 @@ public class UserProfile extends Model {
 
 	public void setUserType(UserType userType) {
 		this.userType = userType;
+	}
+
+	public Facility getFacility() {
+		return facility;
+	}
+
+	public void setFacility(Facility facility) {
+		this.facility = facility;
+	}
+
+	public AuthUser getAuthUser() {
+		return authUser;
+	}
+
+	public void setAuthUser(AuthUser authUser) {
+		this.authUser = authUser;
 	}
 }

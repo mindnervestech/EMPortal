@@ -142,4 +142,15 @@
     <definition name="facility.main.html" template="/WEB-INF/jsp/module/facility/view/facility.main.html.jsp"/>
     <definition name="add-edit-facility.html" template="/WEB-INF/jsp/module/facility/view/add-edit-facility.html.jsp"/>
     
+    <definition name="permissionLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/permission/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/permission/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/permission/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/permission/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/permission/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="permission.main.html" template="/WEB-INF/jsp/module/permission/view/permission.main.html.jsp"/>
+    <definition name="add-edit-permission.html" template="/WEB-INF/jsp/module/permission/view/add-edit-permission.html.jsp"/>
+    
 </tiles-definitions>

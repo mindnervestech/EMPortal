@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.custom.domain.FacilityStatus;
 import com.custom.domain.UserType;
-import com.google.common.collect.Lists;
 import com.mnt.core.utils.RandomPasswordGenerator;
 import com.mnt.core.utils.RandomPasswordGenerator.Mode;
 import com.mnt.emr.module.common.EmailTask;
