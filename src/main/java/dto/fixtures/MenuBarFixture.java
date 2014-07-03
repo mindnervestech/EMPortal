@@ -51,7 +51,7 @@ public class MenuBarFixture {
 			privilegeMap = user.getPrivilegeMap();
 			
 		} else {
-			privilegeMap = ((AuthUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getPrivilegeMap();
+			privilegeMap = ((AuthUser)principal).getPrivilegeMap();
 		}
 		 //Collection<Privileges> privileges = ((AuthUser)principal).getPrivilegeMap().values();
 		for(MenuItem mi : map.values()){

@@ -25,4 +25,9 @@ public class ApplicationServiceImpl implements ApplicationService{
 	public void approveFacility(List<Long> ids) {
 		applicationRepository.approveFacility(ids);
 	}
+	
+	@Override
+	public List<Role> getAllRolesByFacility(Facility facility) {
+		return applicationRepository.getAllRolesByFacility(facility);
+	}
 }

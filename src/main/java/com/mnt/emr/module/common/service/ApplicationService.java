@@ -9,4 +9,5 @@ import com.mnt.emr.module.facility.model.Facility;
 public interface ApplicationService {
 	AuthUser createAuthUserOfFacility(Facility f);
 	void approveFacility(List<Long> ids);
+	List<Role> getAllRolesByFacility(Facility facility);
 }

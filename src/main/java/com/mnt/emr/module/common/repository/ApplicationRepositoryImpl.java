@@ -49,5 +49,10 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
 			emailTask.sendEmail(au);
 		}
 	}
+	
+	@Override
+	public List<Role> getAllRolesByFacility(Facility facility) {
+		return Role.getAllRolesByFacility(facility);
+	}
 
 }

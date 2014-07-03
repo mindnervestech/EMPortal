@@ -1,13 +1,18 @@
 package com.mnt.emr.module.common.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import play.db.ebean.Model;
+import play.db.ebean.Model.Finder;
 
 @Entity
 public class Permission extends Model {
 
+	private static Finder<Long, Permission> find = new Finder<>(Long.class, Permission.class);
+	
 	@Id
 	private Long id;
 	private String name;
@@ -37,5 +42,9 @@ public class Permission extends Model {
 	}
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
+	}
+	
+	public static List<Permission> findAll() {
+		return find.all();
 	}
 }

@@ -8,12 +8,15 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import play.db.ebean.Model;
+import play.db.ebean.Model.Finder;
 
 import com.mnt.emr.module.facility.model.Facility;
 
 @Entity
 public class Role extends Model {
 
+	private static Finder<Long, Role> find = new Finder<>(Long.class, Role.class);
+	
 	@Id
 	private Long id;
 	
@@ -56,4 +59,10 @@ public class Role extends Model {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
+	public static List<Role> getAllRolesByFacility(Facility facility) {
+		return find.where().eq("facility", facility).findList();
+	}
+	
 }
