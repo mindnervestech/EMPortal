@@ -96,7 +96,7 @@ public class ApplicationController {
 	@PreAuthorize("isAuthenticated()")
 	public String home(Locale locale, Model model, Principal principal) {
 		model.addAttribute("_menuContext", MenuBarFixture.build());
-		String role = ((AuthUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserProfile().getRoles().get(0).getName();
+		String role = ((AuthUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getRoles().get(0).getName();
 		String layout;
 		switch(role) {
 			case "DOCTOR" :

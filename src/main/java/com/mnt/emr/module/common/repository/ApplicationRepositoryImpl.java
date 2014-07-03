@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.custom.domain.FacilityStatus;
 import com.custom.domain.UserType;
 import com.google.common.collect.Lists;
+import com.mnt.core.utils.RandomPasswordGenerator;
+import com.mnt.core.utils.RandomPasswordGenerator.Mode;
 import com.mnt.emr.module.common.EmailTask;
 import com.mnt.emr.module.common.model.AuthUser;
 import com.mnt.emr.module.common.model.Role;
@@ -16,7 +18,6 @@ import com.mnt.emr.module.facility.model.Facility;
 
 @Service
 public class ApplicationRepositoryImpl implements ApplicationRepository {
-
 
 	@Autowired
 	@Qualifier("emailTask")
@@ -26,7 +27,11 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
 	public AuthUser createAuthUser(Facility f) {
 		AuthUser authUser = new AuthUser();
 		authUser.setUsername(f.email);
-		authUser.setPassword("asdfgh");
+		try {
+			authUser.setPassword(RandomPasswordGenerator.generateRandomString(6, Mode.ALPHANUMERIC));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		authUser.setFacility(f);
 		authUser.save();
 		return authUser;
@@ -52,7 +57,7 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
 		for(Facility f: facilities) {
 			f.setStatus(FacilityStatus.APPROVED);
 			f.update();
-			AuthUser au = AuthUser.findByUserName(f.getEmail());
+			AuthUser au = AuthUser.findByFacility(f);
 			emailTask.sendEmail(au);
 		}
 	}

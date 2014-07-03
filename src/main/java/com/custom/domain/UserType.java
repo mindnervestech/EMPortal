@@ -1,6 +1,8 @@
 package com.custom.domain;
 
 public enum UserType {
+	FADMIN("FAdmin"),
+	SADMIN("SAdmin"),
 	NURSE("Nurse"),
 	RN("RN"),
 	MEDICAL_ASSISTANT("Medical Asst"),
