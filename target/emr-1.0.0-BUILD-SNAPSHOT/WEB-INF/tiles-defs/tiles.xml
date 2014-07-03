@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">  
+<tiles-definitions>  
+	
+	<definition name="registration" template="/WEB-INF/jsp/registration.jsp"/>
+	
+    <definition name="base.definition" template="/WEB-INF/jsp/layout.jsp">  
+        <put-attribute name="title" value="" />  
+        <put-attribute name="header" value="/WEB-INF/jsp/module/common/Header.jsp" />  
+        <put-attribute name="footer" value="/WEB-INF/jsp/module/common/Footer.jsp" /> 
+        <put-attribute name="app.js" value="" />
+        <put-attribute name="controllers.js" value="" />  
+        <put-attribute name="services.js" value="" /> 
+        <put-attribute name="leftpane" value="" />
+        <put-attribute name="rightpane" value="" /> 
+    </definition>  
+  
+    <definition name="userLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/user/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/user/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/user/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/user/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/user/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="user.main.html" template="/WEB-INF/jsp/module/user/view/user.main.html.jsp"/>
+    <definition name="add-edit-user.html" template="/WEB-INF/jsp/module/user/view/add-edit-user.html.jsp"/>
+    
+	 <definition name="pharmacyLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/pharmacy/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/pharmacy/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/pharmacy/services.js.jsp" />
+        
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/pharmacy/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/pharmacy/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="pharmacy.main.html" template="/WEB-INF/jsp/module/pharmacy/view/pharmacy.main.html.jsp"/>
+    <definition name="add-edit-pharmacy.html" template="/WEB-INF/jsp/module/pharmacy/view/add-edit-pharmacy.html.jsp"/>    
+    
+    <definition name="insuranceCompanyLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/insuranceCompany/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/insuranceCompany/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/insuranceCompany/services.js.jsp" />
+        
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/insuranceCompany/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/insuranceCompany/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="insuranceCompany.main.html" template="/WEB-INF/jsp/module/insuranceCompany/view/insuranceCompany.main.html.jsp"/>
+    <definition name="add-edit-insuranceCompany.html" template="/WEB-INF/jsp/module/insuranceCompany/view/add-edit-insuranceCompany.html.jsp"/>    
+    
+    <definition name="clinicLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/clinic/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/clinic/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/clinic/services.js.jsp" />
+        
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/clinic/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/clinic/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="clinic.main.html" template="/WEB-INF/jsp/module/clinic/view/clinic.main.html.jsp"/>
+    <definition name="add-edit-clinic.html" template="/WEB-INF/jsp/module/clinic/view/add-edit-clinic.html.jsp"/>
+    
+    <definition name="taskLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/task/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/task/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/task/services.js.jsp" />
+        
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/task/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/task/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="task.main.html" template="/WEB-INF/jsp/module/task/view/task.main.html.jsp"/>
+    <definition name="add-edit-task.html" template="/WEB-INF/jsp/module/task/view/add-edit-task.html.jsp"/>
+    
+    <definition name="doctorLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/doctor/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/doctor/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/doctor/services.js.jsp" />
+         
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/doctor/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/doctor/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="doctor.main.html" template="/WEB-INF/jsp/module/doctor/view/doctor.main.html.jsp"/>
+    <definition name="add-edit-doctor.html" template="/WEB-INF/jsp/module/doctor/view/add-edit-doctor.html.jsp"/>
+    
+    
+    <definition name="patientLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/patient/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/patient/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/patient/services.js.jsp" />
+         
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/patient/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/patient/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="patient.main.html" template="/WEB-INF/jsp/module/patient/view/patient.main.html.jsp"/>
+    <definition name="add-edit-patient.html" template="/WEB-INF/jsp/module/patient/view/add-edit-patient.html.jsp"/>   
+	
+    <definition name="schedularLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/schedular/app.js.jsp" />
+        <!-- <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/schedular/controllers.js.jsp" /> -->  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/schedular/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/schedular/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/schedular/rightPane.jsp" />  
+    </definition>
+
+    <definition name="schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/schedular.main.html.jsp"/>
+    <definition name="daily.schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/daily.schedular.main.html.jsp"/>
+    <definition name="monthly.schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/monthly.schedular.main.html.jsp"/>
+    
+    <definition name="login.html" template="/WEB-INF/jsp/Login.jsp"/>
+    
+    <definition name="sadminDasboard"  extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/sadmin/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/sadmin/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/sadmin/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/sadmin/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/sadmin/rightPane.jsp" />
+    </definition>
+    
+    <definition name="fadminDasboard" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/fadmin/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/fadmin/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/fadmin/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/fadmin/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/fadmin/rightPane.jsp" />
+    </definition>
+    
+    <definition name="facilityLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/facility/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/facility/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/facility/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/facility/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/facility/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="facility.main.html" template="/WEB-INF/jsp/module/facility/view/facility.main.html.jsp"/>
+    <definition name="add-edit-facility.html" template="/WEB-INF/jsp/module/facility/view/add-edit-facility.html.jsp"/>
+    
+    <definition name="permissionLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/permission/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/permission/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/permission/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/permission/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/permission/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="permission.main.html" template="/WEB-INF/jsp/module/permission/view/permission.main.html.jsp"/>
+    <definition name="add-edit-permission.html" template="/WEB-INF/jsp/module/permission/view/add-edit-permission.html.jsp"/>
+    
+</tiles-definitions>

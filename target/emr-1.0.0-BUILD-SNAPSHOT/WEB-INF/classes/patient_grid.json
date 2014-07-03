@@ -1,0 +1,32 @@
+{
+ "column" : [
+    {
+       "headerCssClass": "hiddenCol",
+       "cssClass": "hiddenCol",
+       "id": "Id", "name": "Id", "field": "id", "width": 0, "minWidth": 0, "maxWidth": 0
+    },
+    {
+        "name": "Name",
+        "field": "firstName",
+        "id": "firstName", 
+        "sortable": true
+    }, 
+    {
+        "name": "dateOfBirth",
+        "field": "dateOfBirth", 
+        "id": "dateOfBirth",
+        "sortable": true
+    }, 
+    {
+        "name": "Email",
+        "field": "email",
+        "id": "email",
+        "sortable": true
+    }
+ ],
+ "searchable": ["firstName"],
+ "filters": [
+   {"name":"Name","type":"text","label":"Name"}
+ ],
+ "searchUrl" : "patient-search"
+}

@@ -1,0 +1,41 @@
+{
+ "column" : [
+ 	
+    
+    {
+        "name": "Name",
+        "field": "firstName",
+        "id": "firstName", 
+        "sortable": true
+    }, 
+    {
+        "name": "Date of Birth",
+        "field": "dateOfBirth", 
+        "id": "dateOfBirth",
+        "sortable": true
+    }, 
+    {
+        "name": "Email",
+        "field": "email",
+        "id": "email",
+        "sortable": true
+    },
+    {
+       "headerCssClass": "hiddenCol",
+       "cssClass": "hiddenCol",
+       "id": "Id", "name": "Id", "field": "id", "width": 0, "minWidth": 0, "maxWidth": 0
+    },
+    {
+        "name": "AllowedEvents",
+        "field": "allowedScheduledEvent",
+        "id": "allowedScheduledEvent",
+        "sortable": true
+    }
+ ],
+ "searchable": ["firstName","allowedScheduledEvent"],
+ "filters": [
+   {"name":"Name","type":"text","label":"Name"}
+ ],
+ "searchUrl" : "doctor-search",
+ "isActionable" : true
+}

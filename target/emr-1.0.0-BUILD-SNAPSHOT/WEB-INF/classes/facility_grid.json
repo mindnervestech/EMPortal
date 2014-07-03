@@ -1,0 +1,39 @@
+{
+ "column" : [
+    {
+       "headerCssClass": "hiddenCol",
+       "cssClass": "hiddenCol",
+       "id": "Id", "name": "Id", "field": "id", "width": 0, "minWidth": 0, "maxWidth": 0
+    },
+    {
+        "name": "FacilityName",
+        "field": "facilityName",
+        "id": "facilityName", 
+        "sortable": true
+    }, 
+    {
+        "name": "Address",
+        "field": "address1", 
+        "id": "address1",
+        "sortable": true
+    },
+    {
+        "name": "City",
+        "field": "city", 
+        "id": "city",
+        "sortable": true
+    },
+    {
+        "name": "Postal Code",
+        "field": "zipCode", 
+        "id": "postalCode",
+        "sortable": true
+    }
+ ],
+ "searchable": ["facilityName"],
+ "filters": [
+   {"name":"facilityName","type":"text","label":"Name"}
+ ],
+ "searchUrl" : "facility-search",
+ "isActionable" : true
+}

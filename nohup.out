@@ -1,0 +1,307 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building EMR-Portal 1.0.0-BUILD-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.3:clean (default-clean) @ emr ---
+[INFO] Deleting file set: /home/EMPortal/target (included: [**], excluded: [])
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ emr ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 16 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ emr ---
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 134 source files to /home/EMPortal/target/classes
+[WARNING] /home/EMPortal/src/main/java/play/data/Form.java:[41,18] [deprecation] Option in F has been deprecated
+[WARNING] warning: Supported source version 'RELEASE_6' from annotation processor 'org.hibernate.validator.ap.ConstraintValidationProcessor' less than -source '1.7'
+/home/EMPortal/src/main/java/play/data/Form.java:[41,18] [deprecation] Option in F has been deprecated
+[WARNING] /home/EMPortal/src/main/java/play/data/Form.java:[41,18] [deprecation] Option in F has been deprecated
+[WARNING] /home/EMPortal/src/main/java/play/db/ebean/Model.java:[732,18] [deprecation] join(String,JoinConfig) in Query has been deprecated
+[WARNING]   where T is a type-variable:
+    T extends Object declared in interface Query
+/home/EMPortal/src/main/java/play/db/ebean/Model.java:[720,18] [deprecation] join(String) in Query has been deprecated
+[WARNING]   where T is a type-variable:
+    T extends Object declared in interface Query
+/home/EMPortal/src/main/java/play/db/ebean/Model.java:[738,18] [deprecation] join(String,String,JoinConfig) in Query has been deprecated
+[WARNING]   where T is a type-variable:
+    T extends Object declared in interface Query
+/home/EMPortal/src/main/java/play/db/ebean/Model.java:[726,18] [deprecation] join(String,String) in Query has been deprecated
+[WARNING]   where T is a type-variable:
+    T extends Object declared in interface Query
+/home/EMPortal/src/main/java/play/db/ebean/Model.java:[642,24] [deprecation] setQuery(String) in Query has been deprecated
+[WARNING]   where T is a type-variable:
+    T extends Object declared in interface Query
+/home/EMPortal/src/main/java/play/data/Form.java:[104,18] [deprecation] Option in F has been deprecated
+[WARNING] /home/EMPortal/src/main/java/play/data/Form.java:[134,116] [deprecation] Option in F has been deprecated
+[WARNING] /home/EMPortal/src/main/java/play/data/Form.java:[146,116] [deprecation] Option in F has been deprecated
+[WARNING] /home/EMPortal/src/main/java/play/data/Form.java:[340,11] [deprecation] Option in F has been deprecated
+[WARNING] /home/EMPortal/src/main/java/play/data/DynamicForm.java:[32,90] [deprecation] Option in F has been deprecated
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ emr ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ emr ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ emr ---
+[INFO] Surefire report directory: /home/EMPortal/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ emr ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [emr] in [/home/EMPortal/target/emr-1.0.0-BUILD-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/EMPortal/src/main/webapp]
+[INFO] Webapp assembled in [1414 msecs]
+[INFO] Building war: /home/EMPortal/target/emr-1.0.0-BUILD-SNAPSHOT.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] 
+[INFO] --- maven-install-plugin:2.3:install (default-install) @ emr ---
+[INFO] Installing /home/EMPortal/target/emr-1.0.0-BUILD-SNAPSHOT.war to /root/.m2/repository/com/mnt/emr/1.0.0-BUILD-SNAPSHOT/emr-1.0.0-BUILD-SNAPSHOT.war
+[INFO] Installing /home/EMPortal/pom.xml to /root/.m2/repository/com/mnt/emr/1.0.0-BUILD-SNAPSHOT/emr-1.0.0-BUILD-SNAPSHOT.pom
+[INFO] 
+[INFO] >>> tomcat7-maven-plugin:2.1:run (default-cli) @ emr >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ emr ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 16 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ emr ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< tomcat7-maven-plugin:2.1:run (default-cli) @ emr <<<
+[INFO] 
+[INFO] --- tomcat7-maven-plugin:2.1:run (default-cli) @ emr ---
+[INFO] Running war on http://localhost:8080/
+[INFO] Creating Tomcat server configuration at /home/EMPortal/target/tomcat
+[INFO] create webapp with contextPath: 
+Jul 03, 2014 6:25:18 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Jul 03, 2014 6:25:18 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+Jul 03, 2014 6:25:18 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.37
+Jul 03, 2014 6:25:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+Jul 03, 2014 6:25:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+INFO : org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Thu Jul 03 18:25:26 UTC 2014]; root of context hierarchy
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/spring-security.xml]
+INFO : org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@65f00565: defining beans [org.springframework.security.filterChains,org.springframework.security.filterChainProxy,org.springframework.security.web.PortMapperImpl#0,org.springframework.security.web.PortResolverImpl#0,org.springframework.security.config.authentication.AuthenticationManagerFactoryBean#0,org.springframework.security.authentication.ProviderManager#0,org.springframework.security.web.context.HttpSessionSecurityContextRepository#0,org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy#0,org.springframework.security.web.savedrequest.HttpSessionRequestCache#0,org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler#0,org.springframework.security.access.vote.AffirmativeBased#0,org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0,org.springframework.security.web.access.DefaultWebInvocationPrivilegeEvaluator#0,org.springframework.security.authentication.AnonymousAuthenticationProvider#0,org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint#0,org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0,org.springframework.security.userDetailsServiceFactory,org.springframework.security.web.DefaultSecurityFilterChain#0,org.springframework.security.authentication.DefaultAuthenticationEventPublisher#0,org.springframework.security.authenticationManager,customUserDetailsService]; root of factory hierarchy
+INFO : org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1383 ms
+Jul 03, 2014 6:25:27 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'appServlet'
+INFO : org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Jul 03 18:25:27 UTC 2014]; parent: Root WebApplicationContext
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+INFO : org.springframework.context.annotation.ClassPathBeanDefinitionScanner - JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-mail.xml]
+INFO : org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO : org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@706f4829: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.validation.beanvalidation.LocalValidatorFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource#0,org.springframework.security.access.vote.AffirmativeBased#0,org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor#0,org.springframework.security.methodSecurityMetadataSourceAdvisor,org.springframework.aop.config.internalAutoProxyCreator,expressionHandler,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,mongo,mongoCredentials,mongoTemplate,taskRepositoryImpl,taskController,taskServiceImpl,userRepositoryImpl,userController,userServiceImpl,permissionRolesController,patientRepositoryImpl,patientController,patientServiceImpl,schedularController,doctorRepositoryImpl,doctorController,doctorServiceImpl,facilityRepositoryImpl,facilityController,facilityServiceImpl,pharmacyRepositoryImpl,pharmacyController,pharmacyServiceImpl,insuranceCompanyRepositoryImpl,insuranceCompanyController,insuranceCompanyServiceImpl,developersController,applicationRepositoryImpl,applicationController,emailTask,authenticationProvider,applicationServiceImpl,permissionEvaluator,clinicRepositoryImpl,clinicController,clinicServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,tilesViewResolver,tilesConfigurer,mapper,mailSender,mail,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@65f00565
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/task-search],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.mnt.emr.module.task.view.TaskVM> com.mnt.emr.module.task.controller.TaskController.searchTask(java.lang.String,java.lang.String,java.lang.String)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/updateTask],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.task.controller.TaskController.updateUser(com.mnt.emr.module.task.view.TaskVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/deleteTask],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.task.controller.TaskController.deleteUser(com.mnt.emr.module.task.view.TaskVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/add-edit-task.html/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.task.controller.TaskController.displayTask(java.lang.Long,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/saveTask],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.task.controller.TaskController.saveTask(com.mnt.emr.module.task.view.TaskVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/task.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.task.controller.TaskController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/updateUser],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.user.UserController.updateUser(com.mnt.emr.module.user.view.UserVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/deleteUser],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.user.UserController.deleteUser(com.mnt.emr.module.user.view.UserVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/saveUser],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.user.UserController.saveUser(com.mnt.emr.module.user.view.UserVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/user-search],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.mnt.emr.module.user.view.UserVM> com.mnt.emr.module.user.UserController.searchUser(java.lang.String,java.lang.String,java.lang.String)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/add-edit-user.html/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.user.UserController.displayUser(java.lang.Long,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/user.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.user.UserController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/add-edit-permission.html/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.permissionsroles.controller.PermissionRolesController.displayPermission(java.lang.Long,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/savePermission/{rid}],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.permissionsroles.controller.PermissionRolesController.savePermissions(java.lang.Long,java.util.List<com.mnt.emr.module.permissionsroles.view.PermissionModalVM>)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/getAllPermissionSet],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.mnt.emr.module.permissionsroles.view.PermissionVM> com.mnt.emr.module.permissionsroles.controller.PermissionRolesController.getAllPermissionSets()
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/permission.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.permissionsroles.controller.PermissionRolesController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/savePatient],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.patient.controller.PatientController.savePatient(com.mnt.emr.module.patient.view.PatientVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/updatePatient],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.patient.controller.PatientController.updatePatient(com.mnt.emr.module.patient.view.PatientVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/patient-search],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.mnt.emr.module.patient.view.PatientVM> com.mnt.emr.module.patient.controller.PatientController.searchPatient(java.lang.String,java.lang.String,java.lang.String)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/save-stats],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.patient.controller.PatientController.saveStas(com.mnt.emr.module.patient.view.StatsVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/save-data-release],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.patient.controller.PatientController.saveDataRelease(com.mnt.emr.module.patient.view.DataReleaseVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/add-edit-patient.html/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.patient.controller.PatientController.displayPatient(java.lang.Long,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/savePrimaryInsurance],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.patient.controller.PatientController.savePrimaryInsurance(com.mnt.emr.module.patient.view.PatientVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/patient.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.patient.controller.PatientController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/monthly.schedular.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.schedular.controller.SchedularController.monthlyEvents(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/daily.schedular.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.schedular.controller.SchedularController.dailyEvents(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/multiview_schedular],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.schedular.controller.SchedularController.multiviewDoctor()
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/schedular.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.schedular.controller.SchedularController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/updateDoctor],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.doctor.controller.DoctorController.updateDoctor(com.mnt.emr.module.doctor.view.DoctorVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/doctor-search],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.mnt.emr.module.doctor.view.DoctorVM> com.mnt.emr.module.doctor.controller.DoctorController.searchDoctor(java.lang.String,java.lang.String,java.lang.String)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/add-edit-doctor.html/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.doctor.controller.DoctorController.displayDoctor(java.lang.Long,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/saveDoctor],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.doctor.controller.DoctorController.saveDoctor(com.mnt.emr.module.doctor.view.DoctorVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/doctor.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.doctor.controller.DoctorController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/add-edit-facility.html/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.facility.controller.FacilityController.displayFacility(java.lang.Long,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/saveFacilityByUser],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.facility.controller.FacilityController.saveFacilityByUser(javax.servlet.http.HttpServletRequest,com.mnt.emr.module.facility.view.FacilityVM,org.springframework.ui.Model,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/updateFacility],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.facility.controller.FacilityController.updateFacility(com.mnt.emr.module.facility.view.FacilityVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/saveFacilityByAdmin],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.facility.controller.FacilityController.saveFacilityByAdmin(javax.servlet.http.HttpServletRequest,com.mnt.emr.module.facility.view.FacilityVM,org.springframework.ui.Model,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/facility-search],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.mnt.emr.module.facility.view.FacilityVM> com.mnt.emr.module.facility.controller.FacilityController.searchFacility(java.lang.String,java.lang.String,java.lang.String)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/approveFacility],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.facility.controller.FacilityController.approveFacility(java.util.List<java.lang.Long>)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/register],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.facility.controller.FacilityController.registration(java.util.Locale,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/facility.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.facility.controller.FacilityController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/pharmacy-search],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.mnt.emr.module.pharmacy.view.PharmacyVM> com.mnt.emr.module.pharmacy.controller.PharmacyController.searchPharmacy(java.lang.String,java.lang.String,java.lang.String)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/add-edit-pharmacy.html/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.pharmacy.controller.PharmacyController.displayPharmacy(java.lang.Long,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/updatePharmacy],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.pharmacy.controller.PharmacyController.updatePharmacy(com.mnt.emr.module.pharmacy.view.PharmacyVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/deletePharmacy],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.pharmacy.controller.PharmacyController.deletePharmacy(com.mnt.emr.module.pharmacy.view.PharmacyVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/savePharmacy],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.pharmacy.controller.PharmacyController.savePharmacy(com.mnt.emr.module.pharmacy.view.PharmacyVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/pharmacy.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.pharmacy.controller.PharmacyController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/saveinsuranceCompany],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.insuranceCompany.controller.InsuranceCompanyController.saveinsuranceCompany(com.mnt.emr.module.insuranceCompany.view.InsuranceCompanyVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/insuranceCompany-search],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.mnt.emr.module.insuranceCompany.view.InsuranceCompanyVM> com.mnt.emr.module.insuranceCompany.controller.InsuranceCompanyController.searchinsuranceCompany(java.lang.String,java.lang.String,java.lang.String)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/add-edit-insuranceCompany.html/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.insuranceCompany.controller.InsuranceCompanyController.displayinsuranceCompany(java.lang.Long,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/updateinsuranceCompany],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.insuranceCompany.controller.InsuranceCompanyController.updateinsuranceCompany(com.mnt.emr.module.insuranceCompany.view.InsuranceCompanyVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/deleteinsuranceCompany],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.insuranceCompany.controller.InsuranceCompanyController.deleteinsuranceCompany(com.mnt.emr.module.insuranceCompany.view.InsuranceCompanyVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/insuranceCompany.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.insuranceCompany.controller.InsuranceCompanyController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/dev/seed/sql],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.DevelopersController.seedSql()
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.login(java.util.Locale,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/patientLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.patient(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/doctorLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.doctor(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/facilityLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.facility(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/pharmacyLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.pharmacy(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/insuranceCompanyLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.insuranceCompany(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/clinicLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.clinic(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/schedularLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.schedular(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/permissionLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.permission(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/userLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.user(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/taskLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.task(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/homeLayout],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.common.ApplicationController.home(java.util.Locale,org.springframework.ui.Model,java.security.Principal)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/updateClinic],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.clinic.controller.ClinicController.updatePharmacy(com.mnt.emr.module.clinic.view.ClinicVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/saveClinic],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.clinic.controller.ClinicController.saveClinic(com.mnt.emr.module.clinic.view.ClinicVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/deleteClinic],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.Map<java.lang.String, java.lang.String> com.mnt.emr.module.clinic.controller.ClinicController.deleteClinic(com.mnt.emr.module.clinic.view.ClinicVM)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/clinic-search],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<com.mnt.emr.module.clinic.view.ClinicVM> com.mnt.emr.module.clinic.controller.ClinicController.searchClinic(java.lang.String,java.lang.String,java.lang.String)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/add-edit-clinic.html/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.clinic.controller.ClinicController.displayClinic(java.lang.Long,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/clinic.main.html],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.mnt.emr.module.clinic.controller.ClinicController.home(org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+INFO : org.springframework.web.servlet.view.tiles2.TilesConfigurer - TilesConfigurer: adding definitions [/WEB-INF/tiles-defs/tiles.xml]
+WARN : org.dozer.config.GlobalSettings - Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
+INFO : org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 2850 ms
+Jul 03, 2014 6:25:30 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Jul 03, 2014 6:25:35 PM org.apache.jasper.compiler.TldLocationsCache tldScanJar
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Jul 03, 2014 6:25:44 PM com.avaje.ebean.Ebean <clinit>
+INFO: Ebean Version[2.7.3] Java Version[1.7.0_21]
+Jul 03, 2014 6:25:44 PM com.avaje.ebeaninternal.server.lib.sql.DataSourcePool initialise
+INFO: DataSourcePool [default] autoCommit[false] transIsolation[READ_COMMITTED] min[1] max[25]
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.core.DefaultServerFactory setDatabasePlatform
+INFO: DatabasePlatform name:default platform:mysql
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.subclass.SubClassManager$1 run
+INFO: SubClassFactory parent ClassLoader [org.apache.catalina.loader.WebappClassLoader]
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.resource.ResourceManagerFactory createFileSource
+INFO: ResourceManager initialised: type[file] [/home/EMPortal/src/main/webapp/WEB-INF]
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.deploy.parse.DeployCreateProperties getFieldName
+INFO: trimming off 'is' from boolean field name isRead in class com.mnt.emr.module.common.model.Privileges
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.deploy.parse.DeployCreateProperties getFieldName
+INFO: trimming off 'is' from boolean field name isWrite in class com.mnt.emr.module.common.model.Privileges
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.deploy.parse.DeployCreateProperties getFieldName
+INFO: trimming off 'is' from boolean field name isDenied in class com.mnt.emr.module.common.model.Privileges
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.deploy.parse.DeployCreateProperties getFieldName
+INFO: trimming off 'is' from boolean field name isExternalRefer in class com.mnt.emr.module.doctor.model.Doctor
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.deploy.parse.DeployCreateProperties getFieldName
+INFO: trimming off 'is' from boolean field name isAdmin in class com.mnt.emr.module.doctor.model.Doctor
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.deploy.parse.DeployCreateProperties getFieldName
+INFO: trimming off 'is' from boolean field name isAdminAllowed in class com.mnt.emr.module.user.model.UserProfile
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.deploy.parse.DeployCreateProperties getFieldName
+INFO: trimming off 'is' from boolean field name isDefaultContact in class com.mnt.emr.module.patient.model.AddressDetail
+Jul 03, 2014 6:25:45 PM com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager logStatus
+INFO: Entities enhanced[0] subclassed[15]
+<sql summary='AuthUser' >
+select t0.id c0, t0.password c1, t0.username c2, t0.enabled c3, t0.facility_id c4, t0.user_profile_id c5 
+from auth_user t0 
+where t0.username = ? 
+</sql>
+<sql summary='AuthUser' >
+select t0.id c0, t0.password c1, t0.username c2, t0.enabled c3, t0.facility_id c4, t0.user_profile_id c5 
+from auth_user t0 
+where t0.username = ? 
+</sql>
+<sql mode='+lazy' summary='AuthUser +many:roles' load='path:roles batch:1 actual:1' >
+select t0.id c0
+        , t1.id c1, t1.name c2, t1.facility_id c3 
+from auth_user t0
+left outer join auth_user_role t1z_ on t1z_.auth_user_id = t0.id 
+left outer join role t1 on t1.id = t1z_.role_id  
+where t0.id = ?   
+order by t0.id
+</sql>
+<sql mode='+lazy' summary='Role +many:rights' load='path:roles.rights batch:1 actual:1' >
+select t0.id c0
+        , t1.id c1, t1.name c2, t1.is_read c3, t1.is_write c4, t1.is_denied c5, t1.permision_id c6 
+from role t0
+left outer join role_privileges t1z_ on t1z_.role_id = t0.id 
+left outer join privileges t1 on t1.id = t1z_.privileges_id  
+where t0.id = ?   
+order by t0.id
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:roles.rights.permision batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:roles.rights.permision batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:roles.rights.permision batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:roles.rights.permision batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:roles.rights.permision batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql summary='Menu' >
+select t0.id c0, t0.pid c1, t0.permission_id c2 
+from menu t0
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:permission batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:permission batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:permission batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:permission batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:permission batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+<sql mode='+lazy' summary='Permission' load='path:permission batch:1 actual:1' >
+select t0.id c0, t0.name c1, t0.display_name c2, t0.url c3 
+from permission t0 
+where t0.id = ?  
+</sql>
+WARN : org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/favicon.ico] in DispatcherServlet with name 'appServlet'

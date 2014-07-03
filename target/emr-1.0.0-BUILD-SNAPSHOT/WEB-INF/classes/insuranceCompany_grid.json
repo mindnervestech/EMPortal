@@ -1,0 +1,32 @@
+{
+ "column" : [
+    {
+       "headerCssClass": "hiddenCol",
+       "cssClass": "hiddenCol",
+       "id": "Id", "name": "Id", "field": "id", "width": 0, "minWidth": 0, "maxWidth": 0
+    },
+    {
+        "name": "Name",
+        "field": "name",
+        "id": "name", 
+        "sortable": true
+    }, 
+    {
+        "name": "City",
+        "field": "city", 
+        "id": "city",
+        "sortable": true
+    },
+    {
+        "name": "Payer Type",
+        "field": "payerType", 
+        "id": "payerType",
+        "sortable": true
+    }
+ ],
+ "searchable": ["name","city","payerType"],
+ "filters": [
+   {"name":"name","type":"text","label":"Name"}
+ ],
+ "searchUrl" : "insuranceCompany-search"
+}
