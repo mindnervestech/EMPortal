@@ -23,7 +23,7 @@ public class EmrPermissionEvaluator  implements PermissionEvaluator  {
 			String[] accessSet = permission.toString().split("==");
 			Privileges privileges = null;
 			if(principal instanceof String) {
-				user = AuthUser.findByUsername(principal);
+				user = AuthUser.findByUsername(principal.toString());
 				if(user != null) {
 					user.getAuthorities();
 				}

@@ -46,7 +46,7 @@ public class MenuBarFixture {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Map<String, Privileges> privilegeMap = null;
 		if(principal instanceof String) {
-			AuthUser user = AuthUser.findByUsername(principal);
+			AuthUser user = AuthUser.findByUsername(principal.toString());
 			user.getAuthorities();
 			privilegeMap = user.getPrivilegeMap();
 			

@@ -130,8 +130,8 @@ public class AuthUser extends Model implements  UserDetails {
 		return privilegeMap;
 	}
 
-	public static AuthUser findByUsername(Object principal) {
-		return find.where().eq("username", principal.toString()).findUnique();
+	public static AuthUser findByUsername(String principal) {
+		return find.where().eq("username", principal).findUnique();
 		
 	}
 

@@ -24,32 +24,20 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
 	EmailTask emailTask;
 	
 	@Override
-	public AuthUser createAuthUser(Facility f) {
+	public AuthUser createAuthUserOfFacility(Facility f) {
 		AuthUser authUser = new AuthUser();
 		authUser.setUsername(f.email);
-		try {
-			authUser.setPassword(RandomPasswordGenerator.generateRandomString(6, Mode.ALPHANUMERIC));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		authUser.setPassword(RandomPasswordGenerator.generateRandomString(6, Mode.ALPHANUMERIC));
 		authUser.setFacility(f);
+		Role role = new Role();
+		role.setFacility(f);
+		role.setName(UserType.FADMIN.name());
+		authUser.getRoles().add(role);
 		authUser.save();
 		return authUser;
 	}
 
-	@Override
-	public Role createRole(Facility f, AuthUser au) {
-		Role role = new Role();
-		role.setFacility(f);
-		role.setName(UserType.FADMIN.name());
-		role.save();
-		
-		List<Role> roles = Lists.newArrayList();
-		roles.add(role);
-		au.setRoles(roles);
-		au.update();
-		return role;
-	}
+	
 
 	@Override
 	public void approveFacility(List<Long> ids) {

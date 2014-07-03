@@ -17,13 +17,8 @@ public class ApplicationServiceImpl implements ApplicationService{
 	ApplicationRepository applicationRepository;
 	
 	@Override
-	public AuthUser createAuthUser(Facility f) {
-		return applicationRepository.createAuthUser(f);
-	}
-
-	@Override
-	public Role createRole(Facility f, AuthUser au) {
-		return applicationRepository.createRole(f, au);
+	public AuthUser createAuthUserOfFacility(Facility f) {
+		return applicationRepository.createAuthUserOfFacility(f);
 	}
 
 	@Override

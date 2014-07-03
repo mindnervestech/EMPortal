@@ -6,7 +6,8 @@ import com.mnt.emr.module.facility.model.Facility;
 import com.mnt.emr.module.facility.view.FacilityVM;
 
 public interface FacilityService {
-	Facility saveFacility(FacilityVM facility);
+	Facility registerFacilityByUser(FacilityVM facility);
+	Facility registerFacilityByAdmin(FacilityVM facility);
 	FacilityVM getFacilityVMById(Long id);
 	List<FacilityVM> searchFacilitiesByFilter(String name, String role,String dob);
 	Facility updateFacility(FacilityVM facilityVM);	

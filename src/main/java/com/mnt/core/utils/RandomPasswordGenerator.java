@@ -5,7 +5,7 @@ public class RandomPasswordGenerator {
 	    ALPHA, ALPHANUMERIC, NUMERIC 
 	}
 		
-	public static String generateRandomString(int length, Mode mode) throws Exception {
+	public static String generateRandomString(int length, Mode mode) {
 
 		StringBuffer buffer = new StringBuffer();
 		String characters = "";

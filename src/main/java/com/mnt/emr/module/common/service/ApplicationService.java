@@ -7,7 +7,6 @@ import com.mnt.emr.module.common.model.Role;
 import com.mnt.emr.module.facility.model.Facility;
 
 public interface ApplicationService {
-	AuthUser createAuthUser(Facility f);
-	Role createRole(Facility f, AuthUser au);
+	AuthUser createAuthUserOfFacility(Facility f);
 	void approveFacility(List<Long> ids);
 }

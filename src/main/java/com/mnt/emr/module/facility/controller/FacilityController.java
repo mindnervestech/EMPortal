@@ -49,9 +49,7 @@ public class FacilityController {
 	@Autowired
 	ApplicationService applicationService;
 	
-	@Autowired
-	@Qualifier("emailTask")
-	EmailTask emailTask;
+	
 	
 	@RequestMapping(value = "/template/facility.main.html", method = RequestMethod.GET)
 	public String home(Model model) {
@@ -61,7 +59,7 @@ public class FacilityController {
 	}
 	
 	@RequestMapping(value = "/add-edit-facility.html/{id}", method = RequestMethod.GET)
-	public String displayFacilityr(@PathVariable Long id, Model model) {
+	public String displayFacility(@PathVariable Long id, Model model) {
 		FacilityVM facilityVM = null;
 		if(id == -1) {
 			facilityVM = new FacilityVM();
@@ -90,17 +88,9 @@ public class FacilityController {
         	redirectAttributes.addFlashAttribute("invalidCaptcha", "Captcha Is Invalid");
         	return "redirect:/register";
         }
-        facility.setStatus(FacilityStatus.DISAPPROVED.name());
-		Facility f = facilityService.saveFacility(facility);
-		
-
-		AuthUser au1 = applicationService.createAuthUser(f);
-		
-		Role r = applicationService.createRole(f, au1);
-		
-		AuthUser au = AuthUser.find.where().eq("facility.id", -1L).findUnique();
-		emailTask.sendEmail(au);
-        return "redirect:/login";
+        
+        facilityService.registerFacilityByUser(facility);
+		return "redirect:/login";
 	}
 	
 	@RequestMapping(value = "/saveFacilityByAdmin", method = RequestMethod.POST)
@@ -108,12 +98,11 @@ public class FacilityController {
 			Model model, final RedirectAttributes redirectAttributes)
 	{
 		facility.setStatus(FacilityStatus.APPROVED.name());
-		Facility f = facilityService.saveFacility(facility);
+		Facility f = facilityService.registerFacilityByAdmin(facility);
 		
-		AuthUser au = applicationService.createAuthUser(f);
+		applicationService.createAuthUserOfFacility(f);
 		
-		Role r = applicationService.createRole(f, au);
-
+		
 		Map<String,String> message = new HashMap<String, String>();
 		message.put("success", "Facility Saved Successfully!");
 		return message;
