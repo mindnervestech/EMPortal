@@ -78,7 +78,7 @@
 					<input class="col4" data-ng-model="userForm.professionQualification" >
 					
 					<label class="col2  small text-right">Allow Web Access</label>
-					<input type="checkbox" data-ng-model="userForm.webAccess" class="col4">
+					<input type="checkbox"  data-ng-init="userForm.webAccess = true" data-ng-model="userForm.webAccess" class="col4">
 				</div>
 				<div class="onerow color0-row">
 					<css:ui 

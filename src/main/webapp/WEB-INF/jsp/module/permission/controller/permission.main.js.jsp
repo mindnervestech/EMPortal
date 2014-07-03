@@ -5,8 +5,8 @@ controllerProvider.register('PermissionContentController',function($scope,$http,
 	//$scope.userForm = ${userForm};
 	<%@ include file="/WEB-INF/jsp/component/grid.jsp"%>
 	
-	$scope.saveFacility = function() {
-		$http({method:'POST', url:'${pageContext.request.contextPath}/saveFacilityByAdmin', data:$scope.facilityForm }).success(function(response) {
+	$scope.savePermission = function() {
+		$http({method:'POST', url:'${pageContext.request.contextPath}/savePermission/1', data: $scope.permissions }).success(function(response) {
 			Modal.CloseModal();	
 			console.log("saved");
 	    });	
@@ -41,7 +41,8 @@ controllerProvider.register('PermissionContentController',function($scope,$http,
 	};
 	
 	$scope.initFormData = function(asJsonData) {
-		$scope.facilityForm = asJsonData;
+		console.log(asJsonData);
+		$scope.permissions = asJsonData;
 		
 	};
 	$scope.openEntityModalById = function(_id) {

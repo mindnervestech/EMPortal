@@ -4,22 +4,29 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.avaje.ebean.Ebean;
 import com.google.common.collect.Lists;
+import com.mnt.emr.module.common.model.Permission;
 import com.mnt.emr.module.common.model.Privileges;
 import com.mnt.emr.module.common.model.Role;
 import com.mnt.emr.module.common.service.ApplicationService;
-import com.mnt.emr.module.doctor.view.DoctorVM;
+import com.mnt.emr.module.permissionsroles.view.PermissionModalVM;
 import com.mnt.emr.module.permissionsroles.view.PermissionVM;
 import com.mnt.emr.util.Helper;
 import com.mnt.emr.util.Json;
@@ -59,15 +66,40 @@ public class PermissionRolesController {
 	
 	@RequestMapping(value = "/add-edit-permission.html/{id}", method = RequestMethod.GET)
 	public String displayPermission(@PathVariable Long id, Model model) {
-		DoctorVM doctorVM = null;
-		if(id == -1) {
-			doctorVM = new DoctorVM();
+		List<PermissionModalVM> vmList = Lists.newArrayList();
+		List<Permission> permissions = Permission.findAllValidPermissions();
+		List<Privileges> rights = Role.getAllPrivilleges(id);
+		for(Permission _p : permissions) {
+			PermissionModalVM vm = new PermissionModalVM(_p, rights);
+			vmList.add(vm);
 		}
-		model.addAttribute("asJson", Json.toJson(doctorVM));
-		model.addAttribute("doctor", doctorVM);
+		model.addAttribute("asJson", Json.toJson(vmList));
+		model.addAttribute("permissions", vmList);
+		model.addAttribute("role_id", id);
 		return "add-edit-permission.html";
 	}
 	
+	@RequestMapping(value = "/savePermission/{rid}", method = RequestMethod.POST)
+	public @ResponseBody Map<String,String> savePermissions(@PathVariable Long rid, @RequestBody List<PermissionModalVM> modalVMs) {
+		Role role = Role.findById(rid);
+		List<Privileges> privileges = Role.getAllPrivilleges(rid); 
+		privileges.size();
+		Ebean.deleteManyToManyAssociations(role, "rights");
+		Ebean.delete(privileges);
+		
+		List<Privileges> rights = Lists.newArrayList();
+		
+		for(PermissionModalVM vm : modalVMs) {
+			Permission p = Permission.findById(vm.getId());
+			rights.add(new Privileges(p, !vm.isAllowed()));
+		}
+		role.setRights(rights);
+		role.saveManyToManyAssociations("rights");
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("message", "saved");
+		return map;
+	}
 	private static String getStringFromInputStream(InputStream is) {
 		BufferedReader br = null;
 		StringBuilder sb = new StringBuilder();

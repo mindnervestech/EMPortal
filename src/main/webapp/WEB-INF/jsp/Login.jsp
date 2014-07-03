@@ -31,7 +31,7 @@
 	 <div class="container">
 			<div class="heading">
 				<security:authorize access="!isAuthenticated()">
-				  <h1>Login Page</h1>
+				  <h1>Magic EMR Portal</h1>
 				   
 				  <c:if test="${loginFailed}">
 				   <div style="color: red">Could not sign in, please check your login/password...</div>
@@ -53,10 +53,17 @@
 									data-content="What is your Password?">
 							</p>
 							<p>
-								<button name="commit" type="submit" value="Sign In">Login</button>
+								<button name="commit" class="btn btn-success" type="submit" value="Sign In">Login</button>
 							</p>
+							<p>
 				  		</div>
 				  	</fieldset>
+				  	<div class="pull-left">
+				  	<h4 class="text-danger">
+						Not Registered yet?
+						<span><a href="${pageContext.request.contextPath}/register">Register here</a></span>
+					</h4>
+				  	</div>
 				  </form>
 				</security:authorize>
 			</div>

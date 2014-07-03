@@ -59,8 +59,13 @@ public class Role extends Model {
 		this.name = name;
 	}
 	
+	public static List<Privileges> getAllPrivilleges(Long id) {
+		return find.byId(id).getRights();
+	}
 	public static List<Role> getAllRolesByFacility(Facility facility) {
 		return find.where().eq("facility", facility).findList();
 	}
-	
+	public static Role findById(Long id) {
+		return find.byId(id);
+	}
 }

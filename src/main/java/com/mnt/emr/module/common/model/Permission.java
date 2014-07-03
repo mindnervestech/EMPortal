@@ -46,4 +46,11 @@ public class Permission extends Model {
 	public static List<Permission> findAll() {
 		return find.all();
 	}
+	
+	public static List<Permission> findAllValidPermissions() {
+		return find.where().ne("url", null).findList();
+	}
+	public static Permission findById(Long id) {
+		return find.byId(id);
+	}
 }
