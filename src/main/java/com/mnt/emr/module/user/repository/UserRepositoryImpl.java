@@ -13,16 +13,16 @@ import com.mnt.emr.module.doctor.model.Doctor;
 import com.mnt.emr.module.doctor.view.DoctorVM;
 import com.mnt.emr.module.pharmacy.model.Pharmacy;
 import com.mnt.emr.module.pharmacy.view.PharmacyVM;
-import com.mnt.emr.module.user.model.UserModel;
+import com.mnt.emr.module.user.model.UserProfile;
 import com.mnt.emr.module.user.view.UserVM;
 
 @Service
 public class UserRepositoryImpl implements UserRepository {
 	
 	@Override
-	public UserModel saveUser(UserVM userVM) {
+	public UserProfile saveUser(UserVM userVM) {
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
-		UserModel userModel = mapper.map(userVM, UserModel.class);
+		UserProfile userModel = mapper.map(userVM, UserProfile.class);
 		userModel.save();
 		return userModel;
 	}
@@ -30,15 +30,15 @@ public class UserRepositoryImpl implements UserRepository {
 	@Override
 	public UserVM getUserVMById(Long id) {
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
-		UserModel userModel = UserModel.getUserById(id);
+		UserProfile userModel = UserProfile.getUserById(id);
 		UserVM vm = mapper.map(userModel, UserVM.class);
 		return vm;
 	}
 
 	@Override
-	public UserModel updateUser(UserVM userVM) {
+	public UserProfile updateUser(UserVM userVM) {
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
-		UserModel userModel = mapper.map(userVM, UserModel.class);
+		UserProfile userModel = mapper.map(userVM, UserProfile.class);
 		userModel.update();
 		return userModel;
 	}
@@ -46,14 +46,14 @@ public class UserRepositoryImpl implements UserRepository {
 	@Override
 	public void deleteUser(UserVM userVM) {
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
-		UserModel userModel = mapper.map(userVM, UserModel.class);
+		UserProfile userModel = mapper.map(userVM, UserProfile.class);
 		userModel.delete();
 	}
 	
 	@Override
 	public List<UserVM> searchUsersByFilter(String name, String role, String dob) {
 		List<Expression> expressions = new ArrayList<Expression>();
-		List<UserModel> userModels = new ArrayList<>();
+		List<UserProfile> userModels = new ArrayList<>();
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
 		
 		try {
@@ -81,14 +81,14 @@ public class UserRepositoryImpl implements UserRepository {
 				exp = Expr.and(exp, expressions.get(i));
 			}
 			
-			userModels = UserModel.find.where(exp).findList();
+			userModels = UserProfile.find.where(exp).findList();
 		}
 		else {
-			userModels = UserModel.find.all();
+			userModels = UserProfile.find.all();
 		}
 		
 		List<UserVM> userVMs = new ArrayList<>();
-		for(UserModel u : userModels) {
+		for(UserProfile u : userModels) {
 			UserVM vm = mapper.map(u, UserVM.class);
 			userVMs.add(vm);
 		}

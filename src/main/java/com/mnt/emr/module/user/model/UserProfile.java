@@ -1,18 +1,24 @@
 package com.mnt.emr.module.user.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import play.db.ebean.Model;
 
 import com.custom.domain.UserType;
+import com.mnt.emr.module.common.model.AuthUser;
+import com.mnt.emr.module.common.model.Role;
+import com.mnt.emr.module.facility.model.Facility;
 
 @Entity
-public class UserModel extends Model {
+public class UserProfile extends Model {
 	
 	@Id
 	public Long id;
@@ -32,6 +38,23 @@ public class UserModel extends Model {
 	public String professionQualification;
 	public boolean isAdminAllowed;
 	
+	@ManyToMany
+	private List<Role> roles;
+	
+	@OneToOne
+	public Facility facility;
+	
+	@OneToOne
+	public AuthUser authUser;
+	
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+	
 	public boolean isAdminAllowed() {
 		return isAdminAllowed;
 	}
@@ -43,10 +66,10 @@ public class UserModel extends Model {
 	@Enumerated(EnumType.STRING)
 	public UserType userType;
 	
-	public static Finder<Long, UserModel> find = new Finder<>(Long.class, UserModel.class);
+	public static Finder<Long, UserProfile> find = new Finder<>(Long.class, UserProfile.class);
 
-	public static UserModel getUserById(Long id) {
-		UserModel user = UserModel.find.byId(id);
+	public static UserProfile getUserById(Long id) {
+		UserProfile user = UserProfile.find.byId(id);
 		return user;
 	}
 	

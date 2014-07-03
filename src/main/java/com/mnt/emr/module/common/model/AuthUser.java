@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -18,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import play.db.ebean.Model;
 
 import com.mnt.emr.module.common.PermissionAuthority;
+import com.mnt.emr.module.user.model.UserProfile;
 
 @Entity
 public class AuthUser extends Model implements  UserDetails {
@@ -30,16 +32,22 @@ public class AuthUser extends Model implements  UserDetails {
 	
 	private String password;
 	private String username;
-	@ManyToMany
-	private List<Role> roles; 
+	
+	@OneToOne
+	public UserProfile userProfile;
+	
+	 
 	
 	@Transient
 	private Map<String, Privileges> privilegeMap= new HashMap<>();
+
+
+	private boolean enabled;
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<PermissionAuthority> authorities = new HashSet<PermissionAuthority>();
-		for(Role _r: getRoles()) {
+		for(Role _r: getUserProfile().getRoles()) {
 			PermissionAuthority produxAuthority = new PermissionAuthority(_r.getName());
 	        authorities.add(produxAuthority);
 	        
@@ -78,7 +86,7 @@ public class AuthUser extends Model implements  UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-		return false;
+		return this.enabled;
 	}
 	
 	public Long getId() {
@@ -89,13 +97,7 @@ public class AuthUser extends Model implements  UserDetails {
 		this.id = id;
 	}
 
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
+	
 
 	public void setPassword(String password) {
 		this.password = password;
@@ -112,6 +114,18 @@ public class AuthUser extends Model implements  UserDetails {
 
 	public Map<String, Privileges> getPrivilegeMap() {
 		return privilegeMap;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
 	}
 
 }
