@@ -18,7 +18,7 @@ public class UserVM {
 	public String country;
 	public String professionQualification;
 	public boolean webAccess;
-	public String userType;
+	public Long userType;
 	
 	public Long getId() {
 		return id;
@@ -140,11 +140,11 @@ public class UserVM {
 		this.webAccess = webAccess;
 	}
 
-	public String getUserType() {
+	public Long getUserType() {
 		return userType;
 	}
 
-	public void setUserType(String userType) {
+	public void setUserType(Long userType) {
 		this.userType = userType;
 	}
 }

@@ -6,9 +6,11 @@ import com.mnt.emr.module.common.model.Permission;
 import com.mnt.emr.module.common.model.Privileges;
 
 public class PermissionModalVM {
-	private Long id;
-	private String permissionName;
-	private boolean allowed = false;
+	public Long id;
+	public String permissionName;
+	public boolean allowed = false;
+	
+	public PermissionModalVM() {}
 	
 	public PermissionModalVM(Permission _p, List<Privileges> rights) {
 		this.id=_p.getId();

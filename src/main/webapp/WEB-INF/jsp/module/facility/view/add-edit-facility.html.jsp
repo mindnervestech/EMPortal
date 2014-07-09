@@ -72,8 +72,8 @@
 	   </fieldset>
     </div>
     <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="saveFacility()">Save</button>
-            <button class="btn btn-primary" ng-click="updateFacility()">Update</button>
-            <button class="btn btn-primary" ng-click="deleteFacility()">Delete</button>
+            <button data-ng-show="facilityForm.id == undefined;" class="btn btn-primary" ng-click="saveFacility()">Save</button>
+            <button data-ng-show="facilityForm.id != undefined;" class="btn btn-primary" ng-click="updateFacility()">Update</button>
+            <button data-ng-show="facilityForm.id != undefined;" class="btn btn-primary" ng-click="deleteFacility()">Delete</button>
     </div>
 

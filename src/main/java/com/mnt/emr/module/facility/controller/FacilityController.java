@@ -16,6 +16,7 @@ import net.tanesha.recaptcha.ReCaptchaResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -126,7 +127,7 @@ public class FacilityController {
 							@RequestParam(required=false, value="role") String role, @RequestParam(required=false, value="dob") String dob) {
 		return facilityService.searchFacilitiesByFilter(name, role, dob);
 	}
-	
+
 	@RequestMapping(value = "/approveFacility", method = RequestMethod.GET)
 	public @ResponseBody Map<String,String> approveFacility(@RequestParam(value="ids") List<Long> ids) {
 		applicationService.approveFacility(ids);

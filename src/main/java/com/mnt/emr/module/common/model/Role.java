@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 
 import play.db.ebean.Model;
 
+import com.avaje.ebean.Expr;
 import com.mnt.emr.module.facility.model.Facility;
 
 @Entity
@@ -63,8 +64,13 @@ public class Role extends Model {
 		return find.byId(id).getRights();
 	}
 	public static List<Role> getAllRolesByFacility(Facility facility) {
-		return find.where().eq("facility", facility).findList();
+		return find.where().and(Expr.eq("facility", facility), Expr.ne("name", "FADMIN")).findList();
 	}
+	
+	public static List<Role> getAllFacilityAdmins() {
+		return find.where().eq("name", "FADMIN").findList();
+	}
+	
 	public static Role findById(Long id) {
 		return find.byId(id);
 	}

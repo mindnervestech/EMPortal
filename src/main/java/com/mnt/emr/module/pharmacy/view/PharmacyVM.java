@@ -1,6 +1,5 @@
 package com.mnt.emr.module.pharmacy.view;
 
-import javax.persistence.Id;
 
 public class PharmacyVM {
 

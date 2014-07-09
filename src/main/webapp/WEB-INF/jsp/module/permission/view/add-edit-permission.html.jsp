@@ -4,7 +4,8 @@
     </div>
     <div class="modal-body">
     	<fieldset class="border">
-			<div ng-init="id=${role_id}">
+    		<input type="hidden" value="${role_id}" class="role_id">
+			<div>
 				<div class="onerow color1-row" data-ng-repeat="p in permissions">
 					<label>{{p.permissionName}}</label>
 					<input type="checkbox" class="col1" data-ng-model="p.allowed" >

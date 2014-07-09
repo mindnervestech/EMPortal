@@ -1,21 +1,27 @@
 package com.mnt.emr.module.schedular.view;
 
-import java.util.Date;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 
 
 public class ScheduledEvent {
 	
 	private String eventId;
-	private String eventDesc;
-	private String doctor_id;
-	private Date startDate;
-	private Date endDate;
-	private int doctorId;
+	private String text;
 	
-	public int getDoctorId() {
+	@JsonProperty(value="start_date")
+	private String startDate;
+	
+	@JsonProperty(value="end_date")
+	private String endDate;
+	
+	@JsonProperty(value="doctor_id")
+	private String doctorId;
+	
+	public String getDoctorId() {
 		return doctorId;
 	}
-	public void setDoctorId(int doctorId) {
+	public void setDoctorId(String doctorId) {
 		this.doctorId = doctorId;
 	}
 	public String getEventId() {
@@ -24,28 +30,22 @@ public class ScheduledEvent {
 	public void setEventId(String eventId) {
 		this.eventId = eventId;
 	}
-	public String getEventDesc() {
-		return eventDesc;
+	public String getText() {
+		return text;
 	}
-	public void setEventDesc(String eventDesc) {
-		this.eventDesc = eventDesc;
+	public void setText(String text) {
+		this.text = text;
 	}
-	public String getDoctor_id() {
-		return doctor_id;
-	}
-	public void setDoctor_id(String doctor_id) {
-		this.doctor_id = doctor_id;
-	}
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+	public String getStartDate() {
+		return startDate;
+	}
+	public String getEndDate() {
+		return endDate;
 	}	
 }

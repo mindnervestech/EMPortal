@@ -1,0 +1,21 @@
+{
+ "column" : [
+    {
+       "headerCssClass": "hiddenCol",
+       "cssClass": "hiddenCol",
+       "id": "Id", "name": "Id", "field": "id", "width": 0, "minWidth": 0, "maxWidth": 0
+    },
+    {
+        "name": "Name",
+        "field": "name",
+        "id": "name", 
+        "width" : 100,
+        "sortable": true
+    }
+ ],
+ "searchable": ["name"],
+ "filters": [
+   {"name":"name","type":"text","label":"Name"}
+ ],
+ "searchUrl" : "role-search"
+}

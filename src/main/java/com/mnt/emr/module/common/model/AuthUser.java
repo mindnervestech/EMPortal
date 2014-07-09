@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -35,7 +34,7 @@ public class AuthUser extends Model implements  UserDetails {
 	
 	private String password;
 	private String username;
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany
 	private List<Role> roles; 
 	
 	@ManyToOne

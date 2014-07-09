@@ -26,7 +26,8 @@
   	
   	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/css/icol16.css" type="text/css"/>
   	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/css/icol32.css" type="text/css"/>
-  </head>
+<link href="${pageContext.request.contextPath}/resources/app/css/autocomplete.css" rel="stylesheet" media="all">  
+</head>
   <script>var contextPath = "${pageContext.request.contextPath}"</script>
   <body  class="container18grid" data-ng-app="home-app"  style="overflow-y: scroll;">
   			<span us-spinner spinner-key="loading..." ></span>
@@ -34,7 +35,6 @@
   			<div class="onerow">
   			<tiles:insertAttribute name="header" />
   			</div>
-			
 			<div class="onerow">
 				<div class="col3"><tiles:insertAttribute name="leftpane" /></div>
 				<div class="col15 last" ng-view=""></div>
@@ -66,6 +66,9 @@
 	<script src="${pageContext.request.contextPath}/resources/app/slick-grid/controls/slick.columnpicker.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/app/slick-grid/lib/jquery-ui-1.8.16.custom.min.js"></script>
     
+	<script src="${pageContext.request.contextPath}/resources/app/bower_components/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/app/bower_components/jquery-ui.min.js"></script>
+    
 	<script src="${pageContext.request.contextPath}/resources/app/bower_components/moment/moment.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     
@@ -84,6 +87,8 @@
     <script src="${pageContext.request.contextPath}/resources/app/bower_components/spin.js/spin.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/app/bower_components/angular-spinner/angular-spinner.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/app/bower_components/ng-dialog/js/ngDialog.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/app/bower_components/autocomplete.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/app/bower_components/event.js"></script>
     
     <tiles:insertAttribute name="app.js" />
     <tiles:insertAttribute name="services.js" />

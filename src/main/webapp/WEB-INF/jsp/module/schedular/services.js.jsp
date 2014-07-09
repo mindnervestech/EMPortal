@@ -9,6 +9,7 @@ angular.module('home-app').service('Modal',function( $modal){
 	}
 	
 	this.CloseModal = function() {
+		scheduler.updateView();
 		this.instance.dismiss('close');
 		this.onSuccess();
 	}

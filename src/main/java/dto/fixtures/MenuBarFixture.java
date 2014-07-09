@@ -20,7 +20,7 @@ import dto.MenuBar.MenuItem;
 
 public class MenuBarFixture {
 	private static Map<String,MenuItem> map=null ;
-	static {
+	public  static void buildMenuMap() {
 		List<Menu> menus = Menu.findAll();
 		map = new LinkedHashMap<String,MenuItem>();
 		Permission p;
@@ -42,6 +42,7 @@ public class MenuBarFixture {
 	}
 	
 	public static MenuBar build(){
+		buildMenuMap();
 		List<MenuItem> resultMenu = new ArrayList<MenuItem>();
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Map<String, Privileges> privilegeMap = null;
