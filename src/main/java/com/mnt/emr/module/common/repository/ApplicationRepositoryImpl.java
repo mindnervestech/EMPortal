@@ -1,5 +1,6 @@
 package com.mnt.emr.module.common.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,14 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
 		Role role = new Role();
 		role.setFacility(f);
 		role.setName(UserType.FADMIN.name());
-		authUser.getRoles().add(role);
+		if(authUser.getRoles() == null) {
+			List<Role> roles = new ArrayList<Role>();
+			roles.add(role);
+			authUser.setRoles(roles);
+		} else {
+			authUser.getRoles().add(role);
+		}
+		
 		authUser.save();
 		return authUser;
 	}
@@ -52,6 +60,18 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
 	@Override
 	public List<Role> getAllRolesByFacility(Facility facility) {
 		return Role.getAllRolesByFacility(facility);
+	}
+
+	@Override
+	public List<Role> getAllFacilityAdmins() {
+		return Role.getAllFacilityAdmins();
+	}
+
+	@Override
+	public String getFileForId(Long id) {
+		System.out.println(id);
+		//File Path fetch Logic here
+		return "D://storage//1//user.jpg";
 	}
 
 }

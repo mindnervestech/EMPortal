@@ -113,6 +113,7 @@
     <definition name="daily.schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/daily.schedular.main.html.jsp"/>
     <definition name="monthly.schedular.main.html" template="/WEB-INF/jsp/module/schedular/view/monthly.schedular.main.html.jsp"/>
     
+    <definition name="add-edit-appointment.html" template="/WEB-INF/jsp/module/schedular/view/add-edit-appointment.html.jsp"/> 
     <definition name="login.html" template="/WEB-INF/jsp/Login.jsp"/>
     
     <definition name="sadminDasboard"  extends="base.definition">
@@ -152,5 +153,18 @@
           
     <definition name="permission.main.html" template="/WEB-INF/jsp/module/permission/view/permission.main.html.jsp"/>
     <definition name="add-edit-permission.html" template="/WEB-INF/jsp/module/permission/view/add-edit-permission.html.jsp"/>
+    
+    <definition name="dashboard.main.html" template="/WEB-INF/jsp/module/dashboard/view/dashboard.main.html.jsp"/>
+    
+    <definition name="roleLayout" extends="base.definition">
+    	<put-attribute name="app.js" value="/WEB-INF/jsp/module/roles/app.js.jsp" />
+        <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/roles/controllers.js.jsp" />  
+        <put-attribute name="services.js" value="/WEB-INF/jsp/module/roles/services.js.jsp" />
+        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/roles/leftPane.jsp" />
+        <put-attribute name="rightpane" value="/WEB-INF/jsp/module/roles/rightPane.jsp" />  
+    </definition>    
+          
+    <definition name="role.main.html" template="/WEB-INF/jsp/module/roles/view/role.main.html.jsp"/>
+    <definition name="add-edit-role.html" template="/WEB-INF/jsp/module/roles/view/add-edit-role.html.jsp"/>
     
 </tiles-definitions>

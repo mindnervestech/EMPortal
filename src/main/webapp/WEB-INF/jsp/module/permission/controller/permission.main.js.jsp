@@ -6,7 +6,7 @@ controllerProvider.register('PermissionContentController',function($scope,$http,
 	<%@ include file="/WEB-INF/jsp/component/grid.jsp"%>
 	
 	$scope.savePermission = function() {
-		$http({method:'POST', url:'${pageContext.request.contextPath}/savePermission/1', data: $scope.permissions }).success(function(response) {
+		$http({method:'POST', url:'${pageContext.request.contextPath}/savePermission/' + $(".role_id").val(), data: {'permissions' : $scope.permissions} }).success(function(response) {
 			Modal.CloseModal();	
 			console.log("saved");
 	    });	

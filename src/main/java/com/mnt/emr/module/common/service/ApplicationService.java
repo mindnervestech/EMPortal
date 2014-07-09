@@ -10,4 +10,6 @@ public interface ApplicationService {
 	AuthUser createAuthUserOfFacility(Facility f);
 	void approveFacility(List<Long> ids);
 	List<Role> getAllRolesByFacility(Facility facility);
+	List<Role> getAllFacilityAdmins();
+	String getFileForId(Long id);
 }

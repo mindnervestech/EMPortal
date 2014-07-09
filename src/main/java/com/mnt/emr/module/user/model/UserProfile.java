@@ -39,7 +39,7 @@ public class UserProfile extends Model {
 	@OneToOne
 	public Facility facility;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne
 	public AuthUser authUser;
 	
 	public boolean isAdminAllowed() {
@@ -50,8 +50,7 @@ public class UserProfile extends Model {
 		this.isAdminAllowed = isAdminAllowed;
 	}
 
-	@Enumerated(EnumType.STRING)
-	public UserType userType;
+	public Long userType;
 	
 	public static Finder<Long, UserProfile> find = new Finder<>(Long.class, UserProfile.class);
 
@@ -172,11 +171,11 @@ public class UserProfile extends Model {
 		this.professionQualification = professionQualification;
 	}
 
-	public UserType getUserType() {
+	public Long getUserType() {
 		return userType;
 	}
 
-	public void setUserType(UserType userType) {
+	public void setUserType(Long userType) {
 		this.userType = userType;
 	}
 

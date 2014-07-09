@@ -30,4 +30,14 @@ public class ApplicationServiceImpl implements ApplicationService{
 	public List<Role> getAllRolesByFacility(Facility facility) {
 		return applicationRepository.getAllRolesByFacility(facility);
 	}
+
+	@Override
+	public List<Role> getAllFacilityAdmins() {
+		return applicationRepository.getAllFacilityAdmins();
+	}
+
+	@Override
+	public String getFileForId(Long id) {
+		return applicationRepository.getFileForId(id);
+	}
 }

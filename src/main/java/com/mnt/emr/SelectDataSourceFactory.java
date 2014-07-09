@@ -1,6 +1,7 @@
 package com.mnt.emr;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.custom.domain.AllowedScheduledEvent;
@@ -12,6 +13,9 @@ import com.custom.domain.TaskPriority;
 import com.custom.domain.TaskStatus;
 import com.custom.domain.UserGender;
 import com.custom.domain.UserType;
+import com.mnt.emr.module.common.model.Role;
+import com.mnt.emr.module.facility.model.Facility;
+import com.mnt.emr.util.Helper;
 
 public class SelectDataSourceFactory {
 	
@@ -51,11 +55,12 @@ public static Map<String, String> getAllowedEvents() {
 		return map;
 	}
 
-	public static Map<String, String> userTypeList() {
-		Map<String, String> map = new HashMap<>();
-		UserType[] users = UserType.values();
-		for(UserType u: users) {
-			map.put(u.name(), u.displayValue);
+	public static Map<Long, String> userTypeList() {
+		Map<Long, String> map = new HashMap<>();
+		Facility facility = Helper.getCurrentUser().getFacility();
+		List<Role> roles = Role.getAllRolesByFacility(facility);
+		for(Role r: roles) {
+			map.put(r.getId(), r.getName());
 		}
 		return map;
 	}
@@ -153,6 +158,24 @@ public static Map<String, String> getAllowedEvents() {
 		for(Salutation s: salutations) {
 			map.put(s.name(), s.displayValue);
 		}
+		return map;
+	}
+
+	public static Map<Integer, String> visitTypes() {
+		Map<Integer, String> map = new HashMap<>();
+		map.put(1, "Followup Visit");
+		map.put(2 , "Urgent Visit");
+		map.put(3 , "Wellness Exam");
+		map.put(4 , "New patient");
+		map.put(5 , "Yearly Physical");
+		map.put(6 , "Referral");
+		return map;
+	}
+	
+	public static Map<Integer, String> serviceTypes() {
+		Map<Integer, String> map = new HashMap<>();
+		map.put(1, "Ultrasound");
+		map.put(2 , "X-Ray");
 		return map;
 	}
 }

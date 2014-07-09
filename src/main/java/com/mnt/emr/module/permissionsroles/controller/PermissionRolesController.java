@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.avaje.ebean.Ebean;
@@ -26,6 +24,7 @@ import com.mnt.emr.module.common.model.Permission;
 import com.mnt.emr.module.common.model.Privileges;
 import com.mnt.emr.module.common.model.Role;
 import com.mnt.emr.module.common.service.ApplicationService;
+import com.mnt.emr.module.permissionsroles.view.PermissionListVM;
 import com.mnt.emr.module.permissionsroles.view.PermissionModalVM;
 import com.mnt.emr.module.permissionsroles.view.PermissionVM;
 import com.mnt.emr.util.Helper;
@@ -50,14 +49,21 @@ public class PermissionRolesController {
 	@RequestMapping(value="/getAllPermissionSet", method = RequestMethod.GET)
 	@PreAuthorize("hasRole('ROLE_SADMIN') or hasRole('ROLE_FADMIN')")
 	public @ResponseBody List<PermissionVM>  getAllPermissionSets() {
-		List<Role> roles =  applicationService.getAllRolesByFacility(Helper.getCurrentUser().getFacility());
+		List<Role> roles = null;
+		if(Helper.getCurrentUser().getFacility().getId() == -1) {
+			roles =  applicationService.getAllFacilityAdmins();
+		} else {
+			roles =  applicationService.getAllRolesByFacility(Helper.getCurrentUser().getFacility());
+		}
+		
 		List<PermissionVM> permissionVMs = Lists.newArrayList();
 		
 		for(Role _r : roles) {
 			List<Privileges> privileges = _r.getRights();
 			String permissions = "";
 			for(Privileges _p : privileges) {
-				permissions += _p.getPermision().getDisplayName() + " | ";
+				if(!_p.getDenied())
+					permissions += _p.getPermision().getDisplayName() + " | ";
 			}
 			permissionVMs.add(new PermissionVM(_r.getId(), _r.getName(), permissions));
 		}
@@ -80,7 +86,7 @@ public class PermissionRolesController {
 	}
 	
 	@RequestMapping(value = "/savePermission/{rid}", method = RequestMethod.POST)
-	public @ResponseBody Map<String,String> savePermissions(@PathVariable Long rid, @RequestBody List<PermissionModalVM> modalVMs) {
+	public @ResponseBody Map<String,String> savePermissions(@PathVariable Long rid, @RequestBody PermissionListVM modalVMs) {
 		Role role = Role.findById(rid);
 		List<Privileges> privileges = Role.getAllPrivilleges(rid); 
 		privileges.size();
@@ -89,9 +95,11 @@ public class PermissionRolesController {
 		
 		List<Privileges> rights = Lists.newArrayList();
 		
-		for(PermissionModalVM vm : modalVMs) {
+		for(PermissionModalVM vm : modalVMs.getPermissionModalVMs()) {
 			Permission p = Permission.findById(vm.getId());
-			rights.add(new Privileges(p, !vm.isAllowed()));
+			Privileges pr = new Privileges(p, !vm.isAllowed());
+			pr.save();
+			rights.add(pr);
 		}
 		role.setRights(rights);
 		role.saveManyToManyAssociations("rights");

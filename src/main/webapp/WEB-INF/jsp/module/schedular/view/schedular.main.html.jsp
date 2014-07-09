@@ -7,6 +7,7 @@
 <script src="${pageContext.request.contextPath}/resources/app/dhtmlx/dhtmlxscheduler_multiselect.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/resources/app/dhtmlx/dhtmlxscheduler_timeline.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/resources/app/dhtmlx/dhtmlxscheduler_treetimeline.js" type="text/javascript"></script>
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/app/dhtmlx/dhtmlxscheduler.css" type="text/css">
 
 <button data-ng-click="openEntityModalById(-1)">Add Appointment</button>

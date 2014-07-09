@@ -8,6 +8,7 @@ import org.dozer.Mapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Expr;
 import com.avaje.ebean.Expression;
 import com.mnt.core.utils.RandomPasswordGenerator;
@@ -39,17 +40,12 @@ public class UserRepositoryImpl implements UserRepository {
 			authUser.setEnabled(true);
 			authUser.setFacility(user.getFacility());
 			
-			Role role = new Role();
-			role.setName(userVM.getUserType());
-			
-			role.setFacility(user.getFacility());
-			
 			if(authUser.getRoles() == null) {
 				List<Role> roles = new ArrayList<>();
-				roles.add(role);
+				roles.add(Role.findById(userVM.userType));
 				authUser.setRoles(roles);
-			} else {
-				authUser.getRoles().add(role);
+				authUser.save();
+				Ebean.saveManyToManyAssociations(authUser, "roles");
 			}
 		}
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
@@ -101,14 +97,14 @@ public class UserRepositoryImpl implements UserRepository {
 		catch(NullPointerException e) {
 			e.printStackTrace();
 		}
-		try {
+		/*try {
 				if(!role.equals("")){
 					expressions.add(Expr.ilike("userType", "%" + role + "%")); 
 				}
 		}
 		catch(NullPointerException e) {
 			e.printStackTrace();
-		}
+		}*/
 		if(expressions.size()!=0)
 		{
 			Expression exp = expressions.get(0);
