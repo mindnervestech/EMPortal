@@ -71,4 +71,9 @@ public class DoctorRepositoryImpl implements DoctorRepository{
 		doctor.update();
 		return doctor;
 	}
+
+	@Override
+	public List<Doctor> getDoctorsByIds(String resourceIds) {
+		return Doctor.getDoctorsByIds(resourceIds);
+	}
 }

@@ -36,8 +36,8 @@
   			<tiles:insertAttribute name="header" />
   			</div>
 			<div class="onerow">
-				<div class="col3"><tiles:insertAttribute name="leftpane" /></div>
-				<div class="col15 last" ng-view=""></div>
+				<div class="col2"><tiles:insertAttribute name="leftpane" /></div>
+				<div class="col16 last" ng-view=""></div>
 				<%-- <div class="col3 last"><tiles:insertAttribute name="rightpane" /></div> --%>
 		    </div>
 		    

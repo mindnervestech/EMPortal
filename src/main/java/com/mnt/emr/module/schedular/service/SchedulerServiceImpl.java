@@ -47,13 +47,18 @@ public class SchedulerServiceImpl implements SchedulerService {
 	}
 
 	@Override
-	public List<ScheduledEvent> getAllAppointmetsOfFacilityOfDay(String fromDate) {
-		return schedulerRepository.getAllAppointmetsOfFacilityOfDay(fromDate);
+	public List<ScheduledEvent> getAllAppointmetsOfFacilityOfDay(String resourceIds, String fromDate) {
+		return schedulerRepository.getAllAppointmetsOfFacilityOfDay(resourceIds, fromDate);
 	}
 
 	@Override
 	public void deleteAppointmentById(Long appointmentId) {
 		schedulerRepository.deleteAppointmentById(appointmentId);
+	}
+
+	@Override
+	public List<ScheduledEvent> getAppointmentsByResources(List<Integer> resourcesIds) {
+		return schedulerRepository.getAppointmentsByResources(resourcesIds);
 	}
 	
 

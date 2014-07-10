@@ -287,13 +287,19 @@ public class Appointment extends Model {
 	}
 
 	public static List<Appointment> getAllAppointmentsOfFacilityOfDay(
-			Facility facility, Date aptDate) {
+			Facility facility, String resourceIds, Date aptDate) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(aptDate);
 		
+		String[] rids = resourceIds.split(",");
+		List<Integer> resources = new ArrayList<>();
+		for(String s: rids) {
+			resources.add(Integer.parseInt(s));
+		}
 		return find.where().eq("appointmentDate", calendar.get(Calendar.DAY_OF_MONTH))
 					.eq("appointmentMonth", calendar.get(Calendar.MONTH))
 					.eq("appointmentYear", calendar.get(Calendar.YEAR))
+					.in("appointmentWithId", resources)
 					.findList();
 	}
 
@@ -333,5 +339,9 @@ public class Appointment extends Model {
 
 	public static void deleteAppointmentById(Long appointmentId) {
 		find.byId(appointmentId).delete();
+	}
+
+	public static List<Appointment> getAppointmentsByResources(List<Integer> resourcesIds) {
+		return find.where().in("appointmentWithId", resourcesIds).findList();
 	}
 }

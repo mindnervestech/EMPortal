@@ -105,7 +105,6 @@
     	<put-attribute name="app.js" value="/WEB-INF/jsp/module/schedular/app.js.jsp" />
         <!-- <put-attribute name="controllers.js" value="/WEB-INF/jsp/module/schedular/controllers.js.jsp" /> -->  
         <put-attribute name="services.js" value="/WEB-INF/jsp/module/schedular/services.js.jsp" />
-        <put-attribute name="leftpane" value="/WEB-INF/jsp/module/schedular/leftPane.jsp" />
         <put-attribute name="rightpane" value="/WEB-INF/jsp/module/schedular/rightPane.jsp" />  
     </definition>
 

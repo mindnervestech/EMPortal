@@ -1,5 +1,6 @@
 package com.mnt.emr.module.doctor.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -349,5 +350,16 @@ public class Doctor extends Model {
 
 	public void setGroupDetails(List<GroupDetail> groupDetails) {
 		this.groupDetails = groupDetails;
+	}
+
+	public static List<Doctor> getDoctorsByIds(String resourceIds) {
+		String[] rids = resourceIds.split(",");
+		List<Integer> resources = new ArrayList<>();
+		for(String s: rids) {
+			resources.add(Integer.parseInt(s));
+		}
+		
+		return find.where().in("id", resources).findList();
+		
 	}
 }

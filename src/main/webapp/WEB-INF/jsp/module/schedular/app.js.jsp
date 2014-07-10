@@ -44,16 +44,22 @@ app.directive('dhxScheduler', function() {
 	  scheduler.config.last_hour = 20;
 	  scheduler.config.time_step = 15;
 	  scheduler.xy.scale_height=120;
-	  scheduler.config.hour_size_px = 88;
+	  scheduler.config.hour_size_px = 176;
+	 
+	  scheduler.config.drag_create = false;
+	  scheduler.config.drag_move = false;
+	  scheduler.config.drag_resize= false;
 	  
 	  scheduler.locale.labels.unit_tab = "Doctors"
 	  //scheduler.config.details_on_create=true;
-	 // scheduler.config.dblclick_create = true;
+	  //scheduler.config.dblclick_create = true;
 	  scheduler.config.limit_time_select = true;
 	  //scheduler.config.edit_on_create = true;
 	  scheduler.config.select = false;
 	  scheduler.config.show_loading = true;
 	  scheduler.config.collision_limit = 1;
+	  
+	  scheduler.config.prevent_cache = true;
 	  
 	  //scheduler.config.touch = "force";
 	  var step = 15;
@@ -62,7 +68,7 @@ app.directive('dhxScheduler', function() {
 	  scheduler.templates.hour_scale = function(date) {
 		  html="";
 		  for (var i=0; i<60/step; i++){
-			html+="<div style='height:21px;line-height:21px;'>"+format(date)+"</div>";
+			html+="<div style='height:42px;line-height:42px;'>"+format(date)+"</div>";
 			date = scheduler.date.add(date,step,"minute");
 		  }
 		   return html;
@@ -72,7 +78,8 @@ app.directive('dhxScheduler', function() {
 			scheduler.createUnitsView({
 				name:"unit",
 				property: "doctor_id",
-				list: $scope.sections,
+				list: scheduler.serverList("units", $scope.sections),
+				skip_incorrect : true,
 				size : 8,
 				step:4
 			});
@@ -85,17 +92,16 @@ app.directive('dhxScheduler', function() {
 				container.innerHTML = html;
 				return true;
 			}; */
+			
 			scheduler.attachEvent("onClick", function (id, e){
 			   	console.log("in click");
 			   	var eventObj = scheduler.getEvent(id);
-			   	console.log(eventObj);
 			   	$scope.renderAppointmentView(eventObj.eventId);
 			   	return false;
 	  	     });
 			
 			scheduler.attachEvent("onEventLoading", function(ev){ 
 				console.log("in event load");
-				console.log(ev);
 				return scheduler.checkCollision(ev);             
 			});
 			
@@ -148,14 +154,24 @@ app.directive('dhxScheduler', function() {
 	
 			//Called on single click in cell area.
 			scheduler.attachEvent("onEmptyClick", function (date, e){
-				  // $scope.renderAppointmentView(-1);
+				var s2d = scheduler.date.date_to_str("%H:%i");
+				console.log("on Empty Click");
+				console.log(e);
+				
+				var action_data = scheduler.getActionData(e);
+				console.log(action_data);
+				$scope.appointmentForm = {};
+				$scope.appointmentForm.appointmentDmy = date;
+				$scope.appointmentForm.startMin = s2d(date);
+				$scope.appointmentForm.endMin = s2d(scheduler.date.add(date, scheduler.config.time_step, 'minute'));
+				$scope.appointmentForm.appointmentWithId = action_data.section;
+				$scope.renderAppointmentView(-1);
 			});
 			
-			scheduler.attachEvent("onDragEnd", function (date, e){
-				console.log(e);
+			/* scheduler.attachEvent("onDragEnd", function (date, e){
 				$scope.renderAppointmentView(-1);
 				return false;
-			});
+			}); */
 			
 			scheduler.attachEvent("onBeforeLightbox", function (id){
 				$scope.renderAppointmentView(id);
@@ -164,16 +180,12 @@ app.directive('dhxScheduler', function() {
 			
 			scheduler.attachEvent("onBeforeEventChanged", function(ev, e, is_new) {
 					var s2d = scheduler.date.date_to_str("%H:%i");
-					console.log(s2d(ev.start_date));
-					console.log(s2d(ev.end_date));
 					
 					$scope.appointmentForm = {};
-					console.log(ev);
 					$scope.appointmentForm.appointmentDmy = ev.start_date;
 					$scope.appointmentForm.startMin = s2d(ev.start_date);
 					$scope.appointmentForm.endMin = s2d(ev.end_date);
 					$scope.appointmentForm.appointmentWithId = ev.doctor_id;
-					console.log($scope.appointmentForm);
 					return true;
 			});
 
@@ -239,7 +251,7 @@ app.directive('dhxScheduler', function() {
       scheduler.init($element[0], $scope.scheduler.date, $scope.scheduler.mode);
       
       scheduler.setLoadMode("day");
-      scheduler.load("events/daily", "json", function() {
+      scheduler.load("events/daily?resources=" + $scope.resourceIds, "json", function() {
     	  console.log("Data has been successfully loaded");
       });
       

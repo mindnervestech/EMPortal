@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.common.collect.Lists;
 import com.mnt.core.utils.EmrHelper;
+import com.mnt.emr.module.doctor.model.Doctor;
 import com.mnt.emr.module.doctor.service.DoctorService;
 import com.mnt.emr.module.doctor.view.DoctorVM;
 import com.mnt.emr.module.patient.model.Patient;
@@ -192,16 +193,51 @@ public class SchedularController {
 	}
 	
 	@RequestMapping(value = "/events/daily", method = RequestMethod.GET)
-	public @ResponseBody List<ScheduledEvent> getDailyEventsOfDate(@RequestParam(value="from") String fromDate, @RequestParam(value="to") String toDate) {
+	public @ResponseBody List<ScheduledEvent> getDailyEventsOfDate(@RequestParam(value="resources") String resourceIds, @RequestParam(value="from") String fromDate, @RequestParam(value="to") String toDate) {
 		logger.info("inside get appointment");
-		logger.info("date::: " + fromDate);
+		logger.info("date::: " + resourceIds);
 		
-		List<ScheduledEvent> events = schedulerService.getAllAppointmetsOfFacilityOfDay(fromDate);
-		Map<String,String> message = new HashMap<String, String>();
-		message.put("success", "Appointment got Successfully!");
+		List<ScheduledEvent> events = schedulerService.getAllAppointmetsOfFacilityOfDay(resourceIds ,fromDate);
+		
+		List<Doctor> doctorList = 
+				doctorService.getDoctorsByIds(resourceIds);
+		
+		List<DoctorResourceVM> resourceVMs = Lists.newArrayList();
+		for(Doctor d: doctorList) {
+			resourceVMs.add(new DoctorResourceVM(d));
+		}
+		
+		Map<String,Object> responce = new HashMap<String, Object>();
+		responce.put("events", events);
+		responce.put("doctorsEvent", resourceVMs);
 		return events;
 	}
 
+	@RequestMapping(value = "/getAppointmentsByResources", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> getAppointmentsByResources(@RequestBody List<Integer> resourcesIds) {
+		logger.info("inside get resources by id");
+		System.out.println(resourcesIds);
+		List<ScheduledEvent> events = schedulerService.getAppointmentsByResources(resourcesIds);
+		
+		String resourceString = "";
+		for(Integer id: resourcesIds) {
+			resourceString += id + ",";
+		}
+		
+		List<Doctor> doctorList = 
+				doctorService.getDoctorsByIds(resourceString);
+		
+		List<DoctorResourceVM> resourceVMs = Lists.newArrayList();
+		for(Doctor d: doctorList) {
+			resourceVMs.add(new DoctorResourceVM(d));
+		}
+		
+		Map<String,Object> responce = new HashMap<String, Object>();
+		responce.put("events", events);
+		responce.put("doctorsEvent", resourceVMs);
+		return responce;
+	}
+	
 	@RequestMapping(value = "/findPatients", method = RequestMethod.GET)
 	public @ResponseBody List<PatientVM> searchPatientsByName(@RequestParam String searchParam) {
 		logger.info("Searching for patients.");

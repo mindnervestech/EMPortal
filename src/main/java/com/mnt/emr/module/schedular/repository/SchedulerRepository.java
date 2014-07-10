@@ -14,7 +14,8 @@ public interface SchedulerRepository {
 	List<Appointment> getAppointmentByMonth(final String month);
 	Appointment saveAppointment(AppointmentVM appointment) throws ParseException;
 	Appointment updateAppointment(AppointmentVM appointment);
-	List<ScheduledEvent> getAllAppointmetsOfFacilityOfDay(String fromDate);
+	List<ScheduledEvent> getAllAppointmetsOfFacilityOfDay(String resourceIds,String fromDate);
 	void deleteAppointmentById(Long appointmentId);
+	List<ScheduledEvent> getAppointmentsByResources(List<Integer> resourcesIds);
 	
 }

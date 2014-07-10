@@ -10,4 +10,5 @@ public interface DoctorService {
 	DoctorVM getDoctorVMById(Long id);	
 	List<DoctorVM> searchDoctorsByFilter(String name, String role, String dob);	
 	Doctor updateDoctor(DoctorVM doctorVM);
+	List<Doctor> getDoctorsByIds(String resourceIds);
 }

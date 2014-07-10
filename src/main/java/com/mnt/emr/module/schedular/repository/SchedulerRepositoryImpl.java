@@ -51,7 +51,7 @@ public class SchedulerRepositoryImpl implements SchedulerRepository{
 	}
 
 	@Override
-	public List<ScheduledEvent> getAllAppointmetsOfFacilityOfDay(String fromDate) {
+	public List<ScheduledEvent> getAllAppointmetsOfFacilityOfDay(String resourceIds,String fromDate) {
 		AuthUser authUser = Helper.getCurrentUser();
 		Facility facility = authUser.getFacility();
 		
@@ -64,7 +64,7 @@ public class SchedulerRepositoryImpl implements SchedulerRepository{
 			e.printStackTrace();
 		}
 		
-		List<Appointment> appointments = Appointment.getAllAppointmentsOfFacilityOfDay(facility, aptDate);
+		List<Appointment> appointments = Appointment.getAllAppointmentsOfFacilityOfDay(facility, resourceIds, aptDate);
 		formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 		List<ScheduledEvent> events = new ArrayList<>();
 		
@@ -73,7 +73,6 @@ public class SchedulerRepositoryImpl implements SchedulerRepository{
 			ScheduledEvent se = new ScheduledEvent();
 			se.setDoctorId(a.getAppointmentWithId().toString());
 			se.setEventId(a.getId().toString());
-			//07/05/2014 14:00
 			
 			se.setStartDate(formatter.format(a.getAppointmentDmy()));
 			
@@ -89,6 +88,29 @@ public class SchedulerRepositoryImpl implements SchedulerRepository{
 	@Override
 	public void deleteAppointmentById(Long appointmentId) {
 		Appointment.deleteAppointmentById(appointmentId);
+	}
+
+	@Override
+	public List<ScheduledEvent> getAppointmentsByResources(List<Integer> resourcesIds) {
+		List<Appointment> appointments = Appointment.getAppointmentsByResources(resourcesIds);
+		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+		List<ScheduledEvent> events = new ArrayList<>();
+		
+		SimpleDateFormat formatterForText = new SimpleDateFormat("HH:mm");
+		for(Appointment a: appointments) {
+			ScheduledEvent se = new ScheduledEvent();
+			se.setDoctorId(a.getAppointmentWithId().toString());
+			se.setEventId(a.getId().toString());
+			
+			se.setStartDate(formatter.format(a.getAppointmentDmy()));
+			
+			Date endDate = new Date(a.getAppointmentDmy().getTime() + ((a.getEndMin()-a.getStartMin())*60*1000));
+			se.setEndDate(formatter.format(endDate));
+			se.setText( formatterForText.format(a.getAppointmentDmy())+ " - " +  formatterForText.format(endDate));
+			
+			events.add(se);
+		}
+		return events;
 	}
 
 }

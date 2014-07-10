@@ -35,4 +35,9 @@ public class DoctorServiceImpl implements DoctorService {
 		return doctorRepository.updateDoctor(doctorVM);
 	}
 
+	@Override
+	public List<Doctor> getDoctorsByIds(String resourceIds) {
+		return doctorRepository.getDoctorsByIds(resourceIds);
+	}
+
 }
