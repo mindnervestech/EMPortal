@@ -31,6 +31,10 @@ controllerProvider.register('DoctorContentController',function($scope,$http,Moda
 		$scope.doctorForm = asJsonData;
 	};
 	
+	$scope.closeModal = function() {
+		Modal.CloseModal();
+	};
+	
 	$scope.blockBtn = function() {
 		alert($scope.getSelectedRows());
 	};

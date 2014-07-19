@@ -1,6 +1,7 @@
 	<%@ taglib prefix="css" uri="/WEB-INF/mnt.tld"%>
 	<div class="modal-header" data-ng-init='initFormData(${asJson})'>
-            <h3 class="modal-title">Add/Edit User</h3>
+            <h3 class="modal-title" style="width: 95%; float: left;">Add/Edit User</h3>
+            <span class="glyphicon glyphicon-remove" style="top: 12px;cursor: pointer;" data-ng-click="closeModal()"></span>
     </div>
     <div class="modal-body">
     	<fieldset class="border">

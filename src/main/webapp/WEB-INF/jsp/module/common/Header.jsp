@@ -5,12 +5,11 @@
 	<ul class="nav nav-tabs" >
 		<c:forEach var="items" items="${_menuContext.items}">	
 	
-		 <c:if test="${items.isSubMenu()}"> 	
+		 <c:if test="${items.isSubMenu()}"> 
 		  		<c:if test='${items.name == "Logout"}'>
 		  		<li style="float:right;">
-
-		 			 <a href="#" style="padding-top: 8px; float:left;"> ${user.firstName} |</a>
-		 			 <a style="float:left;" href="${pageContext.request.contextPath}${items.url}">${items.name}</a>
+		 			 <a href="#" style="padding-top: 8px; float:left;"> ${user.username} |</a>
+		 			 <a style="float:left;" href="<c:url value="${pageContext.request.contextPath}/j_spring_security_logout" />">Logout</a>
 		 		</li>
 		 		</c:if>
 		 		<c:if test='${items.name != "Logout"}'>

@@ -4,12 +4,12 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
   <head>
-    <title>Home</title>
+    <title>Register Facility</title>
     <link href="${pageContext.request.contextPath}/resources/app/bower_components/bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-      <legend></legend>
+      <legend>Register Facility</legend>
       <c:if test="${not empty invalidCaptcha}">
       	<div class="col-sm-offset-3">
 		  <p class="error" style="color: red;">${invalidCaptcha}</p>
@@ -114,7 +114,7 @@
               <div class="form-group">
                 <button type="submit" 
                   class="btn btn-primary col-sm-offset-1"> I'm done,please process my registration request</button>
-                <a href="/login-page" class="btn btn-info">Back</a>
+                <a href="${pageContext.request.contextPath}/login" class="btn btn-info">Back</a>
               </div>
             </div>
           </form>

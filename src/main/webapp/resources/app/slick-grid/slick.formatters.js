@@ -59,7 +59,6 @@
   }
   
   function LongToDateFormatter(row, cell, value, columnDef, dataContext) {
-	 console.log(value);
-     return "";
+     return moment(value).format("DD/MM/YYYY");
   }
 })(jQuery);

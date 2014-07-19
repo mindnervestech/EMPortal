@@ -6,6 +6,7 @@
 	<div class="mws-panel-toolbar">
           <div class="btn-toolbar">
               <div class="btn-group">
+              	  <a data-ng-click="openRoleEntityModalById(-1)" class="btn"><i class="icol-add"></i> Add</a>
                   <a data-ng-click="refreshBtn()" class="btn"><i class="icol-arrow-refresh"></i> Refresh</a>
              </div>
           </div>

@@ -9,18 +9,21 @@
         "name": "FacilityName",
         "field": "facilityName",
         "id": "facilityName", 
+        "width" : 300,
         "sortable": true
     }, 
     {
         "name": "Address",
         "field": "address1", 
         "id": "address1",
+        "width" : 300,
         "sortable": true
     },
     {
         "name": "City",
         "field": "city", 
         "id": "city",
+        "width" : 300,
         "sortable": true
     },
     {

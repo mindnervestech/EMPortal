@@ -2,7 +2,7 @@
 <%@ taglib prefix="css" uri="/WEB-INF/mnt.tld"%>
 
 <div class="box">
-	<css:FormHeader cssclass="box-header-mini">User</css:FormHeader>
+	<css:FormHeader cssclass="box-header-mini">Patient</css:FormHeader>
 	<div class="mws-panel-toolbar">
           <div class="btn-toolbar">
               <div class="btn-group">

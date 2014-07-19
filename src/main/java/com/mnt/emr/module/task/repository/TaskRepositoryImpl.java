@@ -46,13 +46,13 @@ public class TaskRepositoryImpl implements TaskRepository{
 	}
 	
 	@Override
-	public List<TaskVM> searchTasksByFilter(String name, String role, String dob) {
+	public List<TaskVM> searchTasksByFilter(String name, String status, String dob) {
 		List<Expression> expressions = new ArrayList<Expression>();
 		List<Task> tasks = new ArrayList<>();
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
 		
 		try {
-				if(!name.equals("")){
+				if(name!=null && !name.equals("")){
 					expressions.add(Expr.ilike("priority", "%" + name + "%")); 
 				}
 			
@@ -61,8 +61,8 @@ public class TaskRepositoryImpl implements TaskRepository{
 			e.printStackTrace();
 		}
 		try {
-				if(!role.equals("")){
-					expressions.add(Expr.ilike("status", "%" + role + "%")); 
+				if(status!= null && !status.equals("")){
+					expressions.add(Expr.ilike("status", "%" + status + "%")); 
 				}
 		}
 		catch(NullPointerException e) {

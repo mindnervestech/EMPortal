@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserVM> searchUsersByFilter(String name, String role, String dob) {
+	public List<UserVM> searchUsersByFilter(String name, Long role, String dob) {
 		return userRepository.searchUsersByFilter(name, role, dob);
 	}
 

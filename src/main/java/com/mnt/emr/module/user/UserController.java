@@ -55,7 +55,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/user-search", method = RequestMethod.GET)
 	@ResponseBody
-	public List<UserVM> searchUser(@RequestParam(required=false, value="name") String name, @RequestParam(required=false, value="roleType") String role, @RequestParam(required=false, value="dob") String dob) {
+	public List<UserVM> searchUser(@RequestParam(required=false, value="name") String name, @RequestParam(required=false, value="roleType") Long role, @RequestParam(required=false, value="dob") String dob) {
 		return userService.searchUsersByFilter(name, role, dob);
 	}
 	

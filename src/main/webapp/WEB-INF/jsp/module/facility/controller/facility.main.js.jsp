@@ -44,6 +44,12 @@ controllerProvider.register('FacilityContentController',function($scope,$http,Mo
 		$scope.facilityForm = asJsonData;
 		
 	};
+	
+
+	$scope.closeModal = function() {
+		Modal.CloseModal();
+	};
+	
 	$scope.openEntityModalById = function(_id) {
 		Modal.OpenModal({
 			 templateUrl:'add-edit-facility.html/'+_id,

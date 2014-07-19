@@ -9,18 +9,21 @@
         "name": "Task Subject",
         "field": "taskSubject",
         "id": "taskSubject", 
+        "width" : 300,
         "sortable": true
     }, 
     {
         "name": "Priority",
         "field": "priority", 
         "id": "priority",
+        "width" : 300,
         "sortable": true
     },
     {
         "name": "Status",
         "field": "status", 
         "id": "status",
+        "width" : 300,
         "sortable": true
     }
  ],

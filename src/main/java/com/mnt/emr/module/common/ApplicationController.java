@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mnt.emr.module.common.model.AuthUser;
 import com.mnt.emr.module.common.service.ApplicationService;
+import com.mnt.emr.util.Helper;
 
 import dto.fixtures.MenuBarFixture;
 
@@ -47,6 +48,8 @@ public class ApplicationController {
 	@PreAuthorize("hasPermission(#user, 'userLayout')")
 	@RequestMapping(value = "/userLayout", method = RequestMethod.GET)
 	public String user(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		
 		return "userLayout";
@@ -55,6 +58,8 @@ public class ApplicationController {
 	@PreAuthorize("hasPermission(#user, 'pharmacyLayout')")
 	@RequestMapping(value = "/pharmacyLayout", method = RequestMethod.GET)
 	public String pharmacy(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		
 		return "pharmacyLayout";
@@ -63,6 +68,8 @@ public class ApplicationController {
 	@PreAuthorize("hasPermission(#user, 'insuranceCompanyLayout')")
 	@RequestMapping(value = "/insuranceCompanyLayout", method = RequestMethod.GET)
 	public String insuranceCompany(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		
 		return "insuranceCompanyLayout";
@@ -71,6 +78,8 @@ public class ApplicationController {
 	@PreAuthorize("hasPermission(#user, 'clinicLayout')")
 	@RequestMapping(value = "/clinicLayout", method = RequestMethod.GET)
 	public String clinic(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		
 		return "clinicLayout";
@@ -79,6 +88,8 @@ public class ApplicationController {
 	@RequestMapping(value = "/doctorLayout", method = RequestMethod.GET)
 	@PreAuthorize("hasPermission(#user, 'doctorLayout')")
 	public String doctor(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		
 		return "doctorLayout";
@@ -87,22 +98,26 @@ public class ApplicationController {
 	@PreAuthorize("hasPermission(#user, 'schedularLayout')")
 	@RequestMapping(value = "/schedularLayout", method = RequestMethod.GET)
 	public String schedular(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
-		
 		return "schedularLayout";
 	}
 	
 	@PreAuthorize("hasPermission(#user, 'patientLayout')")
 	@RequestMapping(value = "/patientLayout", method = RequestMethod.GET)
 	public String patient(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
-		
 		return "patientLayout";
 	}
 	
 	@PreAuthorize("hasPermission(#user, 'taskLayout')")
 	@RequestMapping(value = "/taskLayout", method = RequestMethod.GET)
 	public String task(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		return "taskLayout";
 	}
@@ -110,6 +125,8 @@ public class ApplicationController {
 	@PreAuthorize("hasPermission(#user, 'facilityLayout')")
 	@RequestMapping(value = "/facilityLayout", method = RequestMethod.GET)
 	public String facility(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		return "facilityLayout";
 	}
@@ -117,6 +134,8 @@ public class ApplicationController {
 	@PreAuthorize("hasPermission(#user, 'permissionLayout')")
 	@RequestMapping(value = "/permissionLayout", method = RequestMethod.GET)
 	public String permission(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		return "permissionLayout";
 	}
@@ -124,6 +143,8 @@ public class ApplicationController {
 	@PreAuthorize("hasPermission(#user, 'roleLayout')")
 	@RequestMapping(value = "/roleLayout", method = RequestMethod.GET)
 	public String role(Locale locale, Model model, Principal principal) {
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
 		model.addAttribute("_menuContext", MenuBarFixture.build());
 		return "roleLayout";
 	}
@@ -132,6 +153,9 @@ public class ApplicationController {
 	@PreAuthorize("isAuthenticated()")
 	public String home(Locale locale, Model model, Principal principal) {
 		model.addAttribute("_menuContext", MenuBarFixture.build());
+		AuthUser authUser = Helper.getCurrentUser();
+		model.addAttribute("user", authUser);
+		
 		String role = ((AuthUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getRoles().get(0).getName();
 		String layout;
 		switch(role) {

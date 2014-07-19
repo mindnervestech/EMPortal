@@ -1,6 +1,11 @@
 <%@include file='/WEB-INF/jsp/module/doctor/controller/doctor.main.js.jsp' %> 
 <%@ taglib prefix="css" uri="/WEB-INF/mnt.tld"%>
-
+<!-- JUST A POC of Pillbox-->
+<div class="fuelux">
+	<div data-ng-pillbox class="pillbox pillbox-container" on-item-click="pillClicked($data)" data-ng-model="pillboxs" pill-class="status-success">
+	</div>
+	<button data-ng-click="pillboxs.push({item:'A1', value:3})">Add</button>
+</div>
   
 <div class="box">
 	<css:FormHeader cssclass="box-header-mini">Doctor</css:FormHeader>

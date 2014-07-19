@@ -6,18 +6,22 @@
         "name": "Name",
         "field": "firstName",
         "id": "firstName", 
+        "width" : 300,
         "sortable": true
     }, 
     {
         "name": "Date of Birth",
-        "field": "dateOfBirth", 
+        "field": "dateOfBirth",
+        "formatter" : Slick.Formatters.LongToDate, 
         "id": "dateOfBirth",
+        "width" : 150,
         "sortable": true
     }, 
     {
         "name": "Email",
         "field": "email",
         "id": "email",
+        "width" : 200,
         "sortable": true
     },
     {
@@ -29,6 +33,7 @@
         "name": "AllowedEvents",
         "field": "allowedScheduledEvent",
         "id": "allowedScheduledEvent",
+        "width" : 400,
         "sortable": true
     }
  ],

@@ -9,30 +9,35 @@
         "name": "Name",
         "field": "name",
         "id": "name", 
+        "width" : 200,
         "sortable": true
     }, 
     {
         "name": "City",
         "field": "city", 
         "id": "city",
+        "width" : 150,
         "sortable": true
     },
     {
         "name": "Phone",
         "field": "phone", 
         "id": "phone",
+        "width" : 200,
         "sortable": true
     },
     {
         "name": "Email",
         "field": "email", 
         "id": "email",
+        "width" : 300,
         "sortable": true
     },
     {
         "name": "Communication Method",
         "field": "method", 
         "id": "method",
+        "width" : 200,
         "sortable": true
     }
  ],

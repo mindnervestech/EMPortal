@@ -28,6 +28,9 @@ controllerProvider.register('UserContentController',function($scope,$http,Modal)
 	    });	
 	};
 
+	$scope.closeModal = function() {
+		Modal.CloseModal();
+	};
 	
 	$scope.initFormData = function(asJsonData) {
 		$scope.userForm = asJsonData;

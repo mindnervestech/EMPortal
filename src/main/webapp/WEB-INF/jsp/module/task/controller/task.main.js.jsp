@@ -28,6 +28,9 @@ controllerProvider.register('TaskContentController',function($scope,$http,Modal)
 	    });	
 	};
 
+	$scope.closeModal = function() {
+		Modal.CloseModal();
+	};
 	
 	$scope.initFormData = function(asJsonData) {
 		$scope.taskForm = asJsonData;

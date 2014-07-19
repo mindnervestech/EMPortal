@@ -26,6 +26,10 @@ controllerProvider.register('PatientContentController',function($scope,$http,Mod
 	
 	};
 	
+	$scope.closeModal = function() {
+		Modal.CloseModal();
+	};
+	
 	$scope.openEntityModalById = function(_id) {
 		Modal.OpenModal({
 			 templateUrl:'add-edit-patient.html/'+_id,

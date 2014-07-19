@@ -83,13 +83,13 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 	
 	@Override
-	public List<UserVM> searchUsersByFilter(String name, String role, String dob) {
+	public List<UserVM> searchUsersByFilter(String name, Long role, String dob) {
 		List<Expression> expressions = new ArrayList<Expression>();
 		List<UserProfile> userModels = new ArrayList<>();
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
 		
 		try {
-				if(!name.equals("")){
+				if(name != null && !name.equals("")){
 					expressions.add( Expr.or (Expr.or(Expr.ilike("firstName", "%" + name + "%"), 
 								Expr.ilike("middleName", "%" + name + "%")), Expr.ilike("lastName", "%" + name + "%")));
 				}
@@ -97,14 +97,15 @@ public class UserRepositoryImpl implements UserRepository {
 		catch(NullPointerException e) {
 			e.printStackTrace();
 		}
-		/*try {
-				if(!role.equals("")){
-					expressions.add(Expr.ilike("userType", "%" + role + "%")); 
+		try {
+				if(role != null && !role.equals("")){
+					Role r = Role.findById(role);
+					expressions.add(Expr.eq("role", r )); 
 				}
 		}
 		catch(NullPointerException e) {
 			e.printStackTrace();
-		}*/
+		}
 		if(expressions.size()!=0)
 		{
 			Expression exp = expressions.get(0);
@@ -122,6 +123,7 @@ public class UserRepositoryImpl implements UserRepository {
 		List<UserVM> userVMs = new ArrayList<>();
 		for(UserProfile u : userModels) {
 			UserVM vm = mapper.map(u, UserVM.class);
+			vm.setRoleType(u.getRole().getName());
 			userVMs.add(vm);
 		}
 		

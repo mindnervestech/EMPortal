@@ -13,6 +13,7 @@ import play.db.ebean.Model;
 
 import com.custom.domain.UserType;
 import com.mnt.emr.module.common.model.AuthUser;
+import com.mnt.emr.module.common.model.Role;
 import com.mnt.emr.module.facility.model.Facility;
 
 @Entity
@@ -41,6 +42,9 @@ public class UserProfile extends Model {
 	
 	@OneToOne
 	public AuthUser authUser;
+	
+	@OneToOne
+	public Role role;
 	
 	public boolean isAdminAllowed() {
 		return isAdminAllowed;
@@ -193,5 +197,13 @@ public class UserProfile extends Model {
 
 	public void setAuthUser(AuthUser authUser) {
 		this.authUser = authUser;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 }

@@ -10,6 +10,7 @@
         "field": "name",
         "id": "name", 
         "width" : 100,
+        "width" : 300,
         "sortable": true
     }
  ],

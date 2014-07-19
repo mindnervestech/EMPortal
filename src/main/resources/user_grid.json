@@ -7,28 +7,31 @@
     },
     {
         "name": "Name",
-        "field": "name",
+        "field": "firstName",
         "id": "name", 
+        "width" : 300,
         "sortable": true
     }, 
     {
         "name": "Date of Birth",
-        "field": "dob", 
-        "id": "dob",
+        "field": "dateOfBirth",
+        "formatter" : Slick.Formatters.LongToDate,
+        "id": "dateOfBirth",
+        "width" : 300,
         "sortable": true
-    }, 
+    },
     {
-        "name": "Country",
-        "field": "country",
-        "id": "country",
+        "name": "Role Type",
+        "field": "roleType",
+        "id": "roleType",
+        "width" : 300,
         "sortable": true
     }
  ],
- "searchable": ["name","dob"],
+ "searchable": ["name","roleType"],
  "filters": [
    {"name":"name","type":"text","label":"Name"},
-   {"name":"dob","type":"date","label":"Date Of Birth"},
-   {"name":"roleType","type":"enum","label":"Role", "ds":"com.mnt.emr.module.user.RoleType"}
+   {"name":"roleType","type":"java","label":"Role", "ds":"userTypeList"}
  ],
  "searchUrl" : "user-search"
 }

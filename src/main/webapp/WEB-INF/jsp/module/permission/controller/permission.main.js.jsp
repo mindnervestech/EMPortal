@@ -42,9 +42,38 @@ controllerProvider.register('PermissionContentController',function($scope,$http,
 	
 	$scope.initFormData = function(asJsonData) {
 		console.log(asJsonData);
+		$scope.roles = asJsonData;
 		$scope.permissions = asJsonData;
-		
 	};
+	
+
+	$scope.addNewRole = function() {
+		$scope.roles.push({}); 
+	};
+	
+	$scope.saveRole = function() {
+		$http({method:'POST', url:'${pageContext.request.contextPath}/saveRole', data: {"roles" :$scope.roles } }).success(function(response) {
+			Modal.CloseModal();	
+			console.log("saved");
+	    });	
+	};
+	
+	$scope.updateRole = function() {
+		$http({method:'PUT', url:'${pageContext.request.contextPath}/updateRole', data:$scope.roles }).success(function(response) {
+			Modal.CloseModal();	
+	    });
+	};
+	
+	$scope.openRoleEntityModalById = function(_id) {
+		Modal.OpenModal({
+			 templateUrl:'add-edit-role.html/'+_id,
+			 scope: $scope,
+			 windowClass: 'custom-modal'
+		},function() {
+			
+		});
+	};
+	
 	$scope.openEntityModalById = function(_id) {
 		Modal.OpenModal({
 			 templateUrl:'add-edit-permission.html/'+_id,
@@ -53,6 +82,10 @@ controllerProvider.register('PermissionContentController',function($scope,$http,
 		},function() {
 			
 		});
+	};
+	
+	$scope.closeModal = function() {
+		Modal.CloseModal();
 	};
 	
 });

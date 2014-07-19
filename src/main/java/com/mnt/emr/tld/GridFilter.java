@@ -2,6 +2,8 @@ package com.mnt.emr.tld;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -92,6 +94,36 @@ public class GridFilter extends SimpleTagSupport implements DynamicAttributes {
 					}
 						sb.append("</select >");
 						break;	
+					case "java" :
+						sb.append("<label>"+ _f.label +"</label>");
+						sb.append("<select  ");
+						for (String s: dynamicAttrs.keySet()) {
+							sb.append(String.format("%s=\"%s\" ", s, dynamicAttrs.get(s)));
+						}
+						sb.append(" >/n");
+						try {
+							Method method = Class.forName("com.mnt.emr.SelectDataSourceFactory").getMethod(_f.ds);
+							Map map = (Map) method.invoke(null);
+							for(Object e : map.keySet()){
+								String key = e.toString();
+								String value = map.get(e).toString();
+								sb.append("<option value=\"" + key + "\">");
+								sb.append(value);
+								sb.append("</option>\n");
+							};
+						} catch (IllegalAccessException | IllegalArgumentException
+								| InvocationTargetException e) {
+							e.printStackTrace();
+						} catch (NoSuchMethodException e) {
+							e.printStackTrace();
+						} catch (SecurityException e) {
+							e.printStackTrace();
+						} catch (ClassNotFoundException e) {
+							e.printStackTrace();
+						}
+						sb.append("</select >");
+						break;
+						
 				}
 				break;	
 				

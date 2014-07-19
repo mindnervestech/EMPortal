@@ -19,6 +19,7 @@ public class UserVM {
 	public String professionQualification;
 	public boolean webAccess;
 	public Long userType;
+	public String roleType;
 	
 	public Long getId() {
 		return id;
@@ -146,5 +147,13 @@ public class UserVM {
 
 	public void setUserType(Long userType) {
 		this.userType = userType;
+	}
+
+	public String getRoleType() {
+		return roleType;
+	}
+
+	public void setRoleType(String roleType) {
+		this.roleType = roleType;
 	}
 }

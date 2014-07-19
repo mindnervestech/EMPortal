@@ -22,7 +22,8 @@
     </style>
 	
 	<div class="modal-header" data-ng-init='initFormData(${appointmentJson}, ${patientJson})'>
-            <h3 class="modal-title">Appointment</h3>
+        <h3 class="modal-title" style="width: 95%; float: left;">Appointment</h3>
+        <span class="glyphicon glyphicon-remove" style="top: 12px;cursor: pointer;" data-ng-click="closeModal()"></span>
     </div>
     <div class="modal-body">
     	<fieldset class="border">

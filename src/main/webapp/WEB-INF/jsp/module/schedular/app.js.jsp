@@ -68,7 +68,7 @@ app.directive('dhxScheduler', function() {
 	  scheduler.templates.hour_scale = function(date) {
 		  html="";
 		  for (var i=0; i<60/step; i++){
-			html+="<div style='height:42px;line-height:42px;'>"+format(date)+"</div>";
+			html+="<div style='height:42px;line-height:10px;'>"+format(date)+"</div>";
 			date = scheduler.date.add(date,step,"minute");
 		  }
 		   return html;
@@ -82,7 +82,7 @@ app.directive('dhxScheduler', function() {
 				skip_incorrect : true,
 				size : 8,
 				step:4
-			});
+		});
 		
 			/**override this method if requirement is to have complete customized event view.*/
 			/* scheduler.renderEvent = function(container, ev, width, height, header_content, body_content) {

@@ -80,7 +80,7 @@ public class PatientRepositoryImpl implements PatientRepository {
 		List<Patient> patients = new ArrayList<>();
 		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
 		
-		if(!name.equals("")){
+		if(name!=null && !name.equals("")){
 			expressions.add( Expr.or (Expr.or(Expr.ilike("firstName", "%" + name + "%"), 
 						Expr.ilike("middleName", "%" + name + "%")), Expr.ilike("lastName", "%" + name + "%")));
 		}

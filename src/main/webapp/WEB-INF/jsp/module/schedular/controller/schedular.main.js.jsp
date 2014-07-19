@@ -3,7 +3,10 @@
 controllerProvider.register('DailySchedularContentController', 
 		function($scope,$http, Modal,ngDialog){
 	$scope.sections = ${doctorsEvent};
-	
+	$scope.resourceIds=[];
+	 angular.forEach($scope.sections , function(obj, key) {
+		 $scope.resourceIds.push(obj.key);
+	 });
 	//console.log(${doctorsEvent});
 	//console.log(${events});
 	
@@ -19,6 +22,10 @@ controllerProvider.register('DailySchedularContentController',
 	    });	 */
 	};
 
+	$scope.closeModal = function() {
+		Modal.CloseModal();
+	};
+	
 	$scope.renderAppointmentView = function(_id) {
 		Modal.OpenModal({
 			 templateUrl:'add-edit-appointment.html/'+_id,
@@ -47,21 +54,27 @@ controllerProvider.register('DailySchedularContentController',
 		$scope.patient_selection  = true;
 		console.log("onSelectPatient");
 	}
-	/* 
-	$scope.selectResource = function(selected, key) {
-		console.log("inside selected");
-		console.log(selected);
-		console.log(key);
-		scheduler.deleteSection(key);
-		scheduler.updateView();
-	}; */
+	
+	$scope.showOHideSelectedResource = function(key,isChecked) {
+		if(!isChecked) {
+			$scope.resourceIds.push(key);
+		} else {
+			var index = $scope.resourceIds.indexOf(key);
+			$scope.resourceIds.splice(index, 1);
+		}
+		
+		$http({method:'POST', url:'${pageContext.request.contextPath}/getAppointmentsByResources',
+			data : $scope.resourceIds}).success(function(response) {
+				scheduler.updateCollection("units", response.doctorsEvent);
+				scheduler.clearAll();
+				scheduler.updateView();
+				scheduler.parse(response.events,"json");
+		});
+	};
 	
 	$scope.initFormData = function(appointmentJson,patientJson) {
-		console.log(appointmentJson);
-		console.log(patientJson);
 		if(appointmentJson.id != null) {
 			$scope.appointmentForm = appointmentJson;
-			
 			$scope.patientInfo = patientJson;
 			$scope.patient = patientJson.firstName + " " + patientJson.lastName;
 		} else {
@@ -70,9 +83,7 @@ controllerProvider.register('DailySchedularContentController',
 	};
 	
 	$scope.saveAppointment = function() {
-		console.log("Saving appointment and closing dialog.");
 		$scope.patient_selection = false;
-		console.log($scope.appointmentForm);
 		//call the service to store the data in db.
 		$http({method:'POST', url:'${pageContext.request.contextPath}/saveAppointment', 
 			data:$scope.appointmentForm }).success(function(response) {
@@ -85,7 +96,6 @@ controllerProvider.register('DailySchedularContentController',
 	
 	$scope.updateAppointment = function() {
 		console.log("updating appointment and closing dialog.");
-		console.log($scope.appointmentForm);
 		//call the service to store the data in db.
 		$http({method:'PUT', url:'${pageContext.request.contextPath}/updateAppointment', 
 			data:$scope.appointmentForm }).success(function(response) {
@@ -165,7 +175,6 @@ controllerProvider.register('DailySchedularContentController',
             },
         	select: function( event, ui ) {
         		var patient = ui.item;
-        		console.log(patient);
         		$scope.appointmentForm.appointmentOfId = patient.id;
         		$scope.patientInfo = patient;
         	}

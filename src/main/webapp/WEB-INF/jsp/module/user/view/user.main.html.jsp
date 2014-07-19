@@ -20,9 +20,6 @@
 		  <div class="col3">
 		  	<css:grid-filter  json="${gridColumn}" field="roleType" data-ng-model="searchForm.roleType"/>
 		  </div>
-		  <div class="dropdown col6">	
-		  	<css:grid-filter json="${gridColumn}" field="dob" data-ng-model="searchForm.dob" value="{{searchForm.dob|date:'MMMM-dd-yyyy'||'From'}}"/>
-		  </div>
 		  <div class="col3">
 		  	<button data-ng-click="gridSearchBtn()">Search</button>
 		  </div>

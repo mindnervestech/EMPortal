@@ -9,7 +9,7 @@ public interface Application {
 	}
 
 	public interface logout {
-		public static String url="/logout";
+		public static String url="/j_spring_security_logout";
 	}
 
 	public interface deployment {

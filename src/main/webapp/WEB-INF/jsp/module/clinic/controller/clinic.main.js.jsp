@@ -28,6 +28,9 @@ controllerProvider.register('ClinicContentController',function($scope,$http,Moda
 	    });	
 	};
 
+	$scope.closeModal = function() {
+		Modal.CloseModal();
+	};
 	
 	$scope.initFormData = function(asJsonData) {
 		$scope.clinicForm = asJsonData;
