@@ -35,15 +35,16 @@
   			<div class="onerow">
   			<tiles:insertAttribute name="header" />
   			</div>
+  			
 			<div class="onerow">
 				<div class="col2"><tiles:insertAttribute name="leftpane" /></div>
-				<div class="col16 last" ng-view=""></div>
+				<div class="col16 last" ng-view="">
+					<img style="top: 50%; left: 50%; position: absolute; width: 55px" src="${pageContext.request.contextPath}/resources/images/loading.gif"/>
+				</div>
 				<%-- <div class="col3 last"><tiles:insertAttribute name="rightpane" /></div> --%>
 		    </div>
 		    
-		    <div class="onerow">
-		    <tiles:insertAttribute name="footer" />
-		    </div>   
+		       
   </body>
 
 	<script src="${pageContext.request.contextPath}/resources/app/bower_components/jquery/dist/jquery.min.js"></script>

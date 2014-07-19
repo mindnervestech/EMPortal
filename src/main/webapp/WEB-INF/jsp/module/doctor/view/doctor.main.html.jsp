@@ -1,11 +1,6 @@
 <%@include file='/WEB-INF/jsp/module/doctor/controller/doctor.main.js.jsp' %> 
 <%@ taglib prefix="css" uri="/WEB-INF/mnt.tld"%>
 <!-- JUST A POC of Pillbox-->
-<div class="fuelux">
-	<div data-ng-pillbox class="pillbox pillbox-container" on-item-click="pillClicked($data)" data-ng-model="pillboxs" pill-class="status-success">
-	</div>
-	<button data-ng-click="pillboxs.push({item:'A1', value:3})">Add</button>
-</div>
   
 <div class="box">
 	<css:FormHeader cssclass="box-header-mini">Doctor</css:FormHeader>
@@ -14,7 +9,7 @@
               <div class="btn-group">
                   <a data-ng-click="openEntityModalById(-1)" class="btn"><i class="icol-add"></i> Add</a>
                   <a data-ng-click="refreshBtn()" class="btn"><i class="icol-arrow-refresh"></i> Refresh</a>
-                  <a data-ng-click="blockBtn()" class="btn"><i class="icol-delete"></i> Block</a>
+                  
              </div>
           </div>
     </div>				

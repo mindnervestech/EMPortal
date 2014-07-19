@@ -9,7 +9,8 @@ var app = angular.module('home-app', [
   'ui.bootstrap.tpls',
   'ui.bootstrap.datetimepicker',
   'ngDialog',
-  'angularFuelux'
+  'angularFuelux',
+  'ngAnimate'
   
 ],function($controllerProvider){
 	controllerProvider = $controllerProvider;

@@ -8,7 +8,6 @@
               <div class="btn-group">
                   <a data-ng-click="openEntityModalById(-1)" class="btn"><i class="icol-add"></i> Add</a>
                   <a data-ng-click="refreshBtn()" class="btn"><i class="icol-arrow-refresh"></i> Refresh</a>
-                  <a data-ng-click="blockBtn()" class="btn"><i class="icol-delete"></i> Block</a>
              </div>
           </div>
     </div>	
